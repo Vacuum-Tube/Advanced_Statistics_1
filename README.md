@@ -10,7 +10,7 @@ The main calculations are executed in the script thread (update, 5x per second).
 Every (pseudo) entity type has a own script file (where the data of this type is read from the game) and a own gui file (which defines the layout of the data tab). The gui programming uses some basic gui creation helpers (basic.lua) as well as a gui generator (guibuilder.lua) for the simple and flexible way of defining large amounts of (semi-)static data.
 
 ## Contribute
-I am open to any ideas, suggestion and pull requests. 
+I am open to any ideas, suggestions and pull requests. 
 Eventually ask me about how to proceed if you are going to make bigger changes before a pull request.
 
 ## Contact
