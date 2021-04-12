@@ -15,4 +15,4 @@ Eventually ask me about how to proceed if you are going to make bigger changes b
 
 ## Contact
 You can report bugs on "Issues". For general discussions use "Discussions".
-You can also comment on Steam or [!transportfever.net](https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
+You can also comment on Steam or [transportfever.net](https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
