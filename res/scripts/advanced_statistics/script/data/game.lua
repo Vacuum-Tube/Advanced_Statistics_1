@@ -166,10 +166,11 @@ end
 
 
 function g.getTransportedData()
-	local t = api.engine.util.getTransportedData()  --tricky problem: cant return this directly, error when userdata is contained in state: Error message: value must be of type nil, boolean, number, string or table  Key: game/res/gameScript/advanced_statistics.lua_save
+	--tricky problem: cant return this directly, error when userdata is contained in state: Error message: value must be of type nil, boolean, number, string or table  Key: game/res/gameScript/advanced_statistics.lua_save
+	local t = api.engine.util.getTransportedData and api.engine.util.getTransportedData() or {}  -- compatibility with b29596
 	return {
-		passengers = t.passengersTransported,
-		cargo = t.cargoTransported,
+		passengers = t.passengersTransported or -1,
+		cargo = t.cargoTransported or -1,
 	}
 end
 

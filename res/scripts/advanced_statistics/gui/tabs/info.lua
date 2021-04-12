@@ -12,7 +12,10 @@ return function()
 					text = _("mod_name"),
 					style = "AVSHeading2",
 				},
-				string.format("%s %d.%d", _("Version"), info.version.major, info.version.minor),
+				bgui.Button(string.format("%s %d.%d", _("Version"), info.version.major, info.version.minor),
+					function()
+						bgui.Window(bgui.Text(info.changelog), _("Changelog"))
+					end),
 				{
 					text = "© VacuumTube",
 					style = "AVSVacuumTube",

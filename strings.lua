@@ -76,8 +76,9 @@ Furthermore, I would like to thank the beta testers for the useful comments.
 
 
 [h2]Code and future development[/h2]
-The source code of this mod will be available on GitHub later.
+The source code of this mod is available on GitHub: https://github.com/Vacuum-Tube/Advanced_Statistics_1
 I have some ideas for the future. Anyway, I need a break from programming now.
+
 ]],
 		mod_desc_paypal = [[If you like to support my mod development, you can donate here]],
 		mod_desc_discussion = [[
@@ -258,8 +259,9 @@ Desweiteren bedanke ich mich für die nützlichen Kommentare der Beta-Tester.
 
 
 [h2]Code und Weiterentwicklung[/h2]
-Der Quellcode zur Mod wird zu einem späteren Zeitpunkt auf GitHub verfügbar sein.
+Der Quellcode zur Mod ist auf GitHub verfügbar: https://github.com/Vacuum-Tube/Advanced_Statistics_1
 Ich habe auch zahlreiche Ideen für die Weiterentwicklung. Allerdings brauche ich jetzt erstmal eine Pause vom Programmieren.
+
 ]],
 		mod_desc_paypal = [[Wenn du meine Mod Entwicklung unterstützen möchtest, würde ich mich über eine Spende freuen]],
 		mod_desc_discussion = [[

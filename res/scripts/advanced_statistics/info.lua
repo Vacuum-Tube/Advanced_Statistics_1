@@ -15,6 +15,7 @@ return {
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",
 		tfnet = "<coming soon>",
+		github = "https://github.com/Vacuum-Tube/Advanced_Statistics_1",
 	},
 	VacuumTube = {
 		steam = "https://steamcommunity.com/profiles/76561198342751450/myworkshopfiles/?appid=1066780",
@@ -22,6 +23,11 @@ return {
 		donate = "https://paypal.me/VacuumTubeTPF",
 	},
 	changelog = [[
+1.1  2021-04-12
+-Add steam mod link
+-Fix api.engine.util.getTransportedData not available (old game version)
+-Set up GitHub repository
+-Add changelog view
 
 1.0  2021-04-12
 Release
