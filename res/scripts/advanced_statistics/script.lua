@@ -2,6 +2,7 @@ local thread = require "advanced_statistics/thread"
 local log = require "advanced_statistics/log"
 local timer = require "advanced_statistics/script/timer"
 local datalist = require "advanced_statistics/datalist"
+-- assert(#datalist==19, "#datalist: "..#datalist)
 local resdata = require "advanced_statistics/script/resdata"
 local event = require "advanced_statistics/script/event"
 
@@ -132,10 +133,12 @@ function script.calc(all)
 	local circle = state.currentzone or {radius = math.huge}
 	for _,datastr in pairs(datalist) do
 		if all or state.settings.calcactive[datastr] or datastr==state.currenttab then
+			log(all and 1 or 3,"Calc Data",datastr)
 			state.data[datastr] = script.data[datastr].getInfo(circle)
 			state.calctime[datastr] = timer.round()
 			state.timestamp[datastr] = os.clock()
 			-- state.currentzones[datastr] = circle
+			log(all and 1 or 3,"Runtime:",state.calctime[datastr])
 		end
 	end
 	state.calctime.total = timer.stop()

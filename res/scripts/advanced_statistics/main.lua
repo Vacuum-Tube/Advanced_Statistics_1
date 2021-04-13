@@ -10,5 +10,7 @@ avs = {
 }
 
 avs.log(1,"Loaded advanced_statistics/main")--,"Thread:",avs.thread.getCurrentThread())
+avs.log(2,"Data Types:")
+avs.log.logTab(2,avs.datalist)
 
 return avs

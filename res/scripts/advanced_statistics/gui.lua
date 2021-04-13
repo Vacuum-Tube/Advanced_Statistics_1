@@ -32,12 +32,13 @@ end
 
 
 function gu.init()  -- guiInit
-	log(2,"GuiInit")
+	log(1,"GuiInit")
 	log.logTab(3,state)  -- not init here
 	if state.settings and state.settings.start_sound then
 		game.gui.playSoundEffect("industryUpgrade")
 	end
 	game.avs.guiinit = timer.timestamp()
+	log.logTab(2,game.avs.guiinit)
 	ScriptEvent("guiInit", game.avs.guiinit)
 	resdata.init()
 end
