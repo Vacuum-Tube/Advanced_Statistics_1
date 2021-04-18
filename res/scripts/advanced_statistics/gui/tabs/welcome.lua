@@ -20,10 +20,12 @@ return function(state)
 	return guibuilder.buildCompLayout("BoxV", {
 		{
 			text = function(data) return
+				state.error and "Error" or
 				string.format("%s, %s !", __("Welcome back"), data.name )
 			end,
 			style = "AVSWelcome",
 		},
+		not state.error and
 		function(data) return
 			__("welcome_text") % {
 				date = format.GameTimeDate(data.gametime.date),

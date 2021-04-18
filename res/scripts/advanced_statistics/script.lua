@@ -112,8 +112,14 @@ function script.update()  -- gamescript update
 	if not state.init then
 		script.init()
 		state.init = true
-		log(2,"Calc all data")
-		xpcall(script.calc, script.errorHandler, true)
+		log(1,"Calc all data")
+		if not xpcall(script.calc, script.errorHandler, true) then
+			log(1, "Error while Calc all data")
+		end
+		if not state.data.game and not state.error then
+			log(0, "Unkown Error, errorHandler was skipped!")
+			state.error = {msg="Unkown Error, errorHandler was skipped!", loc="Script Init"}
+		end
 		log(2,"State:",state)
 		log.logTab(2,state)
 	else
@@ -133,12 +139,13 @@ function script.calc(all)
 	local circle = state.currentzone or {radius = math.huge}
 	for _,datastr in pairs(datalist) do
 		if all or state.settings.calcactive[datastr] or datastr==state.currenttab then
-			log(all and 1 or 3,"Calc Data",datastr)
+			log(all and 2 or 3,"Calc Data",datastr)
 			state.data[datastr] = script.data[datastr].getInfo(circle)
+			log(all and 2 or 3,"Calc Data ok",datastr)
 			state.calctime[datastr] = timer.round()
 			state.timestamp[datastr] = os.clock()
 			-- state.currentzones[datastr] = circle
-			log(all and 1 or 3,"Runtime:",state.calctime[datastr])
+			log(all and 2 or 3,"Runtime:",state.calctime[datastr])
 		end
 	end
 	state.calctime.total = timer.stop()

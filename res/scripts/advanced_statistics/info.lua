@@ -10,7 +10,7 @@ return {
 	},"\n"),
 	version = {
 		major = 1,
-		minor = 2,
+		minor = 3,
 	},
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",
@@ -23,6 +23,10 @@ return {
 		donate = "https://paypal.me/VacuumTubeTPF",
 	},
 	changelog = [[
+1.3  2021-04-18
+-Add russian translation
+-Improve error logs
+
 1.2  2021-04-13
 -Extend Log messages
 
