@@ -42,7 +42,7 @@ function data()
 					clock = os.clock(),
 					date = os.date(),
 				},
-				loglevel = params and params.avslog or 2  -- default
+				loglevel = params and params.avslog or 1  -- default
 			}
 		end
 	}

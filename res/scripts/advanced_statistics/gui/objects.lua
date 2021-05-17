@@ -60,7 +60,7 @@ function g.Table(dataorder,coloumns,header,dataupdate,visupdate,type)
 		comp:addRow(rowComps)
 		rows[key] = rowComps
 	end
-	if dataupdate and visupdate~=false then
+	if dataupdate and visupdate then
 		comp:onStep(function()
 			local data = dataupdate()
 			for idx,key in pairs(dataorder) do
@@ -235,7 +235,7 @@ function g.CargoTypesTable(dataupdate,formatvalue,formatcol2,valuecaption)
 			"",
 			_("Cargotype"),
 			valuecaption or _("Value"),
-		}, dataupdate)
+		}, dataupdate, true)
 end
 
 

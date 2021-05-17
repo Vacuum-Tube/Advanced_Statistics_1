@@ -30,6 +30,8 @@ Did you ever wanted to know...
 [/list]
 If you like statistics, this mod is right for you.
 
+Also useful as tool to find out filenames of objects and for modders.
+
 
 [h2]Structure[/h2]
 The statistics are contained in a window that is displayed at startup.
@@ -213,6 +215,8 @@ Du wolltest schon immer wissen...
 [/list]
 Wenn du Statistiken magst, dann ist diese Mod das Richtige für dich.
 
+Außerdem nützlich als Tool zum Rausfinden von Dateinamen von Objekten sowie für Modder.
+
 
 [h2]Aufbau[/h2]
 Die Statistiken sind in einem Fenster enthalten, welches beim Start angezeigt wird.
@@ -293,7 +297,7 @@ Die echte Zeit ist jetzt:  ${realtime}
 		AIR = "Luft",
 		WATER = "Wasser",
 		TRACK = "Gleise",
-		STREET = "Straße",
+		STREET = "Straßen",
 		EN_ROUTE = "Unterwegs",
 		AT_TERMINAL = "An Terminal",
 		GOING_TO_DEPOT = "Auf dem Weg zum Depot",
@@ -337,7 +341,7 @@ Die echte Zeit ist jetzt:  ${realtime}
 		Loan = "Kredit",
 		Income = "Einnahmen",
 		Maintenance = "Unterhalt",
-		Acquisition = "Eigentum",
+		Acquisition = "Käufe/Verkäufe",
 		ConstructionJournal = "Bauinvestitionen",
 		Interest = "Zinsen",
 		Vehicles = "Fahrzeuge",
@@ -404,6 +408,8 @@ Die echte Zeit ist jetzt:  ${realtime}
 		Loaded = "Geladen",
 		Unloaded = "Entladen",
 		Activation = "Aktivierung",
+		Finances = "Finanzen",
+		Infrastructure = "Infrastruktur",
 		
 		["Welcome back"] = "Willkommen zurück",
 		["Program Startup"] = "Program Start",

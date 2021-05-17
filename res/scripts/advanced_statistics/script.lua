@@ -53,6 +53,12 @@ function script.load(loadState)
 	state.settings = loadState.settings  -- executed in all threads (to avoid assertion)
 end
 
+function script.save()
+	-- if state.active then
+		return state
+	-- end
+end
+
 function script.event(name, param)
 	local event = script.events[name]
 	if event then
@@ -84,6 +90,9 @@ script.events = {
 		log(2, "script_active event", param)
 		state.active = param
 		state.error = false
+		-- if not param then
+			-- state.data = {}
+		-- end
 	end,
 	zone_change = function(param)
 		state.currentzone = param

@@ -29,7 +29,7 @@ return function(state)
 		function(data) return
 			__("welcome_text") % {
 				date = format.GameTimeDate(data.gametime.date),
-				balance = data.noCosts and "∞ (".._("No Costs")..")" or format.Money(data.account.balance),
+				balance = data.noCosts and "∞ (".._("No Costs")..")" or format.Money(state.data.finances.account.balance),
 				gametime = format.TimeHrs(data.gametimetotal),
 				realtime = format.DateTimeStr(),
 				vehicles = state.data.vehicle.count,
@@ -47,6 +47,21 @@ return function(state)
 		textfield,
 		
 		"",
+		guibuilder.buildCompLayout("BoxH", {
+			{
+				text = function(dummycubes)
+					if dummycubes>0 then
+						return string.format("%s: %s %s (%d)", _("Warning"), _("Placeholder Cubes"), _("found"), dummycubes)
+					else
+						return ""
+					end
+				end,
+				style = "warning"
+			}
+		}, function()
+			return state.data.asset.models_.cube
+		end),
+		
 		guibuilder.buildCompLayout("BoxH", {
 			{
 				text = function(data)

@@ -11,11 +11,8 @@ function g.getInfo()
 		difficulty = g.getGameDifficulty(),
 		speed = g.getGameSpeed(),
 		millis = g.getMillis(),
-		-- loan = g.getLoan(),
-		-- balance = g.getBalance(),
-		account = g.getAccount(),
-		journal = g.getJournalTotal(),
-		-- entities = #game.interface.getEntities{ radius = math.huge },
+		-- account = g.getAccount(),
+		-- journal = g.getJournalTotal(),
 		worldsize = g.getWorldSize(),
 		transported = g.getTransportedData(),
 		isSandbox = g.isSandbox(),
@@ -132,8 +129,8 @@ function g.getAccount()
 	}
 end
 
-function g.getJournalTotal(scale)
-	local journal = game.interface.getPlayerJournal(0, g.getGameTimeMilSec()*(scale or 1), true) -- _sum, acquisition,construction,income,maintenance, interest,loan,other   -- true: short format
+function g.getJournalTotal(scale,short)
+	local journal = game.interface.getPlayerJournal(0, g.getGameTimeMilSec()*(scale or 1), short and true or false) -- _sum, acquisition,construction,income,maintenance, interest,loan,other   -- true: short format
 	return journal
 end
 

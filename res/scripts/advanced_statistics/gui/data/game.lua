@@ -124,9 +124,6 @@ return {
 						text = function(data) return
 							format.GameTimeDate(data.gametime.date)
 						end,
-						-- tooltip = function(data) return
-							
-						-- end
 					}
 				} }},
 			}, {
@@ -137,106 +134,15 @@ return {
 			}
 		}},
 		
-		
-		"<hline>",
-		{ table = {
-			{
-				_("Balance"),
-				{ text = function(data) return
-					format.Money(data.account.balance)
-				end,
-				style = function(data) return
-					style.finance(data.account.balance)
-				end }
-			}, {
-				_("Loan"),
-				{ text = function(data) return
-					format.Money(data.account.loan)
-				end,
-				style = function(data) return
-					style.finance(data.account.loan)
-				end }
-			}, {
-				_("Maximum Loan"),
-				{ text = function(data) return
-					format.Money(data.account.maximumLoan)
-				end,
-				style = function(data) return
-					style.finance(data.account.maximumLoan)
-				end }
-			}, {
-				_("Total"),
-				{ text = function(data) return
-					format.Money(data.account.total)
-				end,
-				style = function(data) return
-					style.finance(data.account.total)
-				end }
-			},
-		}},
-		a{ table = {
-			{
-				_("Income")..format.str.total,
-				{ text = function(data) return
-					format.Money(data.journal.income._sum)
-				end,
-				style = function(data) return
-					style.finance(data.journal.income._sum)
-				end }
-			}, {
-				_("Maintenance")..format.str.total,
-				{ text = function(data) return
-					format.Money(data.journal.maintenance._sum)
-				end,
-				style = function(data) return
-					style.finance(data.journal.maintenance._sum)
-				end }
-			}, {
-				_("Acquisition")..format.str.total,
-				{ text = function(data) return
-					format.Money(data.journal.acquisition._sum)
-				end,
-				style = function(data) return
-					style.finance(data.journal.acquisition._sum)
-				end }
-			}, {
-				_("ConstructionJournal")..format.str.total,
-				{ text = function(data) return
-					format.Money(data.journal.construction._sum)
-				end,
-				style = function(data) return
-					style.finance(data.journal.construction._sum)
-				end }
-			}, {
-				_("Interest")..format.str.total,
-				{ text = function(data) return
-					format.Money(data.journal.interest)
-				end,
-				style = function(data) return
-					style.finance(data.journal.interest)
-				end }
-			}, {
-				_("Sum")..format.str.total,
-				{ text = function(data) return
-					format.Money(data.journal._sum)
-				end,
-				style = function(data) return
-					style.finance(data.journal._sum)
-				end }
-			}
-		}},
-		
 		"<hline>",
 		{ table = {
 			{
 				{ layout = { type = "BoxH",
 					content = {
 						{
-							-- icon = "ui/icons/construction-menu/filter_passengers.tga",
 							icon = "ui/advanced_statistics/person.tga",
 						}, {
 							text = _("Transported Passengers"),
-							-- tooltip = 
 						}
 					}
 				} },
@@ -250,7 +156,6 @@ return {
 							icon = "ui/icons/construction-menu/filter_cargo.tga",
 						}, {
 							text = _("Transported Cargo"),
-							-- tooltip = 
 						}
 					}
 				} },
@@ -259,17 +164,6 @@ return {
 				end
 			},
 		}},
-		-- "<hline>",
-		-- { table = {
-			-- {
-				-- {	text = _("Entities"),
-					-- tooltip = _("entitiesTT"),
-				-- },
-				-- function(data) return
-					-- tostring(data.entities)
-				-- end,
-			-- }
-		-- }},
 		
 		
 	} end

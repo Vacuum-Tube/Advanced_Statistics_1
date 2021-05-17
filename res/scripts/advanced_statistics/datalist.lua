@@ -1,5 +1,6 @@
 return {
 	"game",
+	"finances",
 	"town",
 	"industry",
 	"line",

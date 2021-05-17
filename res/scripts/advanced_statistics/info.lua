@@ -10,7 +10,7 @@ return {
 	},"\n"),
 	version = {
 		major = 1,
-		minor = 3,
+		minor = 4,
 	},
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",
@@ -23,6 +23,11 @@ return {
 		donate = "https://paypal.me/VacuumTubeTPF",
 	},
 	changelog = [[
+1.4  2021-05-17
+-New finances tab
+-Warning message for placeholder cubes
+-Set default Log Level back to 1
+
 1.3  2021-04-18
 -Add russian translation
 -Improve error logs

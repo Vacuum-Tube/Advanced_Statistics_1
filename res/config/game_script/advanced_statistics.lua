@@ -37,7 +37,7 @@ function data()
 		end,
 		save = function()
 			-- print("SAVE",avs.thread.getCurrentThread())
-			return avs.script.state
+			return avs.script.save()
 		end,
 		load = function(state)
 			-- print("LOAD",avs.thread.getCurrentThread(),state)
