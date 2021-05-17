@@ -13,6 +13,15 @@ Every (pseudo) entity type has a own script file (where the data of this type is
 I am open to any ideas, suggestions and pull requests. 
 Eventually ask me about how to proceed if you are going to make bigger changes before a pull request.
 
+## Concepts
+While developing this mod, I extended my knowledge about Lua, the game itself and its scripting and gui interface.
+With this mod, I created some helper files, which might be interesting for other modders.
+- Level Logger
+- List util for counting and values
+- Error Handling (catching, stdout write and error window)
+- Guibuilder (easy definition of gui layouts)
+- Reloader (useful for direct change testing)
+
 ## Contact
 You can report bugs on "Issues". For general discussions use "Discussions".
 You can also comment on Steam or [transportfever.net](https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
