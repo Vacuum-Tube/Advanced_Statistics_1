@@ -27,6 +27,9 @@ local gu = {
 }
 
 function gu.load(loadState)
+	if not loadState.data.game then
+		loadState.data = state.data  -- rescue data
+	end
 	state.state = loadState  -- dealing with pointers... (loadState is a new pointer every update)
 end
 

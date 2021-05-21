@@ -181,6 +181,9 @@ This will keep the game bar values up to date.
 But don't activate too many ones with long execution times, this will lead to simulation lags.
 In the early game you can activate more than in the late game.]],
 		SetGamebarTT = [[This shows short information in the game bar.]],
+		freedataTT = [[
+Will remove the data from state. (to prevent big state size, in order to avoid possible game issue on exit)
+If you want to continue, don't reactivate script, reload instead.]],
 		
 	},
 	
@@ -615,6 +618,8 @@ Die echte Zeit ist jetzt:  ${realtime}
 		Loaded = "Загружено",
 		Unloaded = "Разгружено",
 		Activation = "Активность",
+		Finances = "Финансы",
+		Infrastructure = "Инфраструктура",
 		
 		["Welcome back"] = "С возвращением",
 		["Program Startup"] = "Запуск программы",

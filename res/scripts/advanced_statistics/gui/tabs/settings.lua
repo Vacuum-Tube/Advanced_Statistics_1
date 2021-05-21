@@ -90,6 +90,11 @@ return function(state,window,gamebar)
 	})
 	
 	
+	local freedatabutton = bgui.Button(_("Free Data"), function()
+		ScriptEvent("free_data")
+	end)
+	freedatabutton:setTooltip(_("freedataTT"))
+	
 	local toggleactive = true
 	local scripttext = bgui.Text("Script")
 	local scriptbutton = bgui.Button(scripttext, function()
@@ -100,13 +105,14 @@ return function(state,window,gamebar)
 			toggleactive = true
 			bgui.setPositive(scripttext)
 			scripttext:setText("Script - ".._("Active"))
+			freedatabutton:setEnabled(false)
 		else
 			toggleactive = false
 			bgui.setNegative(scripttext)
 			scripttext:setText("Script - ".._("Deactivated"))
+			freedatabutton:setEnabled(true)
 		end
 	end)
-	
 	
 	
 	return guibuilder.buildComponent({ layout = { type = "BoxV", 
@@ -120,7 +126,10 @@ return function(state,window,gamebar)
 			},function()
 				return state.time
 			end),
-			scriptbutton,
+			guibuilder.buildCompLayout("BoxH",{
+				scriptbutton,
+				freedatabutton,
+			}),
 			
 			"<hline>",
 			bgui.Checkbox(_("showWindowSet"),

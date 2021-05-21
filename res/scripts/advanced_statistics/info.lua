@@ -10,7 +10,7 @@ return {
 	},"\n"),
 	version = {
 		major = 1,
-		minor = 4,
+		minor = 5,
 	},
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",
@@ -23,6 +23,10 @@ return {
 		donate = "https://paypal.me/VacuumTubeTPF",
 	},
 	changelog = [[
+1.5  2021-05-21
+-Add total carrier values to finances tab
+-Add free data button, to reduce state size
+
 1.4  2021-05-17
 -New finances tab
 -Warning message for placeholder cubes

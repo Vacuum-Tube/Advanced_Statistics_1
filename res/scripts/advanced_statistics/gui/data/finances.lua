@@ -33,6 +33,17 @@ local function moneyText(value)
 	}
 end
 
+local function ROIText(valueandincome)
+	return function(data) 
+		local value, income = valueandincome(data)
+		if value>-income then
+			return format.Percent(value/income, 2)
+		else
+			return "-"
+		end
+	end
+end
+
 return {
 	name = _("Finances"),
 	header = false,
@@ -107,9 +118,9 @@ return {
 				end)
 			}, {
 				_("Total").." ".._("ROI"),
-				function(data) return
-					format.Percent(data.journal._sum/data.journal.income._sum)
-				end
+				ROIText(function(data) return
+					data.journal._sum, data.journal.income._sum
+				end)
 			}
 		}},
 		
@@ -174,6 +185,31 @@ return {
 					data.construction.road.street
 				end)
 			end,
+			function(key)
+				return key~="_sum" and moneyText(function(data) return
+					data.income[key] +
+					(key=="_sum" and
+					data.maintenance._sum or
+					data.maintenance[key]._sum) +
+					data.acquisition[key] +
+					(key=="_sum" and
+					data.construction._sum or
+					data.construction[key]._sum)
+				end) or "-"
+			end,
+			function(key)
+				return key~="_sum" and key~="other" and ROIText(function(data) return
+					data.income[key] +
+					(key=="_sum" and
+					data.maintenance._sum or
+					data.maintenance[key]._sum) +
+					data.acquisition[key] +
+					(key=="_sum" and
+					data.construction._sum or
+					data.construction[key]._sum)
+				, data.income[key] 
+				end) or "-"
+			end,
 		},{
 			"<empty>",
 			_("Income"),
@@ -185,6 +221,8 @@ return {
 			_("ConstructionJournal").."\n".._("Stations"),
 			_("ConstructionJournal").."\n".._("Depots"),
 			_("ConstructionJournal").."\n".._("TRACK").."/".._("STREET"),
+			_("Total"),
+			_("Total").."\n".._("ROI"),
 		},
 		function()
 			return updatedata().journal

@@ -67,7 +67,8 @@ function script.event(name, param)
 	else
 		log("handleEvent:", name, param)
 		debugPrint(param)
-		error("AVS Unhandeled Event")
+		-- error("AVS Unhandled Event")
+		script.errorHandler("Unhandled Event: "..name)
 	end
 end
 
@@ -87,12 +88,13 @@ script.events = {
 		state.settings[param.setting] = param.value
 	end,
 	script_active = function(param)
-		log(2, "script_active event", param)
+		log(1, "script_active event", param)
 		state.active = param
 		state.error = false
-		-- if not param then
-			-- state.data = {}
-		-- end
+	end,
+	free_data = function()
+		log(1, "Free state.data")
+		state.data = {}  -- remove data (to prevent big state size, some game issue)
 	end,
 	zone_change = function(param)
 		state.currentzone = param

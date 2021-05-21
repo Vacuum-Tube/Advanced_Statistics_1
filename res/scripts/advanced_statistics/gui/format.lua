@@ -25,19 +25,19 @@ function f.Str(s)
 end
 
 function f.Int(v)
-	return v and v==v and v<math.huge and string.format("%d", v) or "-"
+	return v and v==v and v<math.huge and v>-math.huge and string.format("%d", v) or "-"
 end
 
 function f.Value(v,n)
-	return v and v==v and v<math.huge and string.format("%."..(n or 2).."f", v ) or "-"  -- == nan check
+	return v and v==v and v<math.huge and v>-math.huge and string.format("%."..(n or 2).."f", v ) or "-"  -- == nan check
 end
 
 function f.Percent(p,n)
-	return p and p==p and p<math.huge and string.format("%."..(n or 1).."f%%", p*100 ) or "-"
+	return p and p==p and p<math.huge and p>-math.huge and string.format("%."..(n or 1).."f%%", p*100 ) or "-"
 end
 
 function f.Promille(p,n)
-	return p and p==p and p<math.huge and string.format("%."..(n or 0).."f‰", p*1000 ) or "-"
+	return p and p==p and p<math.huge and p>-math.huge and string.format("%."..(n or 0).."f‰", p*1000 ) or "-"
 end
 
 function f.Number(n)
