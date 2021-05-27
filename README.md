@@ -2,6 +2,9 @@
  
 This is the codebase for my Transport Fever 2 Mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512
 
+## Changelog
+https://github.com/Vacuum-Tube/Advanced_Statistics_1/blob/main/res/scripts/advanced_statistics/info.lua
+
 ## Structure
 I can just roughly explain the structure of this mod. For details you can ask me.
 
