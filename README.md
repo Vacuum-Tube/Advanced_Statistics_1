@@ -27,4 +27,4 @@ With this mod, I created some helper files, which might be interesting for other
 
 ## Contact
 You can report bugs on "Issues". For general discussions use "Discussions".
-You can also comment on Steam or [transportfever.net](https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
+You can also comment on Steam or [transportfever.net](https://www.transportfever.net/filebase/index.php?entry/6204-advanced-statistics/)
