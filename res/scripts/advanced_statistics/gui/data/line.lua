@@ -77,6 +77,11 @@ return {
 			function(data) return
 				string.format("%.0f", data.Rate.max)
 			end
+		}, {
+			_("Rate")..format.str.total,
+			function(data) return
+				string.format("%.0f", data.Rate.sum)
+			end
 		},
 	}}, 
 	{ table = {

@@ -10,11 +10,11 @@ return {
 	},"\n"),
 	version = {
 		major = 1,
-		minor = 5,
+		minor = 6,
 	},
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",
-		tfnet = "<coming soon>",
+		tfnet = "https://www.transportfever.net/filebase/index.php?entry/6204-advanced-statistics/",
 		github = "https://github.com/Vacuum-Tube/Advanced_Statistics_1",
 	},
 	VacuumTube = {
@@ -23,6 +23,9 @@ return {
 		donate = "https://paypal.me/VacuumTubeTPF",
 	},
 	changelog = [[
+1.6  2021-05-27
+-Transportfever.net Release
+
 1.5  2021-05-21
 -Add total carrier values to finances tab
 -Add free data button, to reduce state size

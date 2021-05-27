@@ -6,7 +6,7 @@ return {
 This mod will show you additional statistics and extensive information in the game.
 It can be added/removed every time.
 
-[Description also in game]
+[Description also available in game]
 
 Did you ever wanted to know...
 [list]
@@ -27,6 +27,7 @@ Did you ever wanted to know...
 [*]How many traffic lights there are in a town?
 [*]How many trees there are on the map?
 [*]How many additional street/track/bridge types, models, etc. there are with mods?
+[*]Financial total statistics?
 [/list]
 If you like statistics, this mod is right for you.
 
@@ -194,7 +195,7 @@ If you want to continue, don't reactivate script, reload instead.]],
 Diese Mod zeigt dir erweiterte Statistiken und umfassende Informationen im Spiel an.
 Sie kann jederzeit hinzugefügt/entfernt werden.
 
-[Beschreibung auch im Spiel]
+[Beschreibung auch im Spiel verfügbar]
 
 Du wolltest schon immer wissen... 
 [list]
@@ -215,6 +216,7 @@ Du wolltest schon immer wissen...
 [*]Wie viele Ampeln es in einer Stadt gibt?
 [*]Wie viele Bäume auf der Karte sind?
 [*]Wieviele zusätzlichen Straßen-/Gleis-/Brückentypen, Modelle, etc. es gibt mit Mods?
+[*]Finanzielle gesamte Statistiken?
 [/list]
 Wenn du Statistiken magst, dann ist diese Mod das Richtige für dich.
 
@@ -261,7 +263,7 @@ Um einen Eindruck von der Größe des Projekts zu bekommen: Es besteht aus 87 Sk
 
 [h2]Danksagung[/h2]
 Obwohl ich bei der Entwicklung auf einige technische Schwierigkeiten gestoßen bin, möchte ich Urban Games für den Support und die Modding Möglichkeiten danken.
-Ein großes Danke geht an eis_os und CommonAPI2, dessen Konsole und Inspektor Tools bei der Entwicklung äußerst hilfreich waren.
+Ein großes Danke geht an eis_os und CommonAPI2, dessen Konsole und Inspektor-Tools bei der Entwicklung äußerst hilfreich waren.
 Desweiteren bedanke ich mich für die nützlichen Kommentare der Beta-Tester.
 
 
@@ -494,23 +496,23 @@ Die echte Zeit ist jetzt:  ${realtime}
 	},
 	
 	
-		ru = {
-
+	ru = {
+ 
 		welcome_text = [[
 Сегодня ${date} и ваш баланс составляет ${balance}.
-
+ 
 На карте находятся ${towns} города(-ов) и ${industries} предприятия(-й).
 Количество смоделированных людей ${persons}.
-
+ 
 Ваша транспортная компания владеет ${vehicles} транспортными средствами на ${lines} линиях.
 Длина вашей железнодорожной сети составляет ${tracklength} (${percelectrified} электрифицированно).
 Длина улиц, принадлежащих игроку, составляет ${streetlength}.
-
+ 
 На этой карте вы играли ${gametime}.
-
+ 
 Реальное время сейчас:  ${realtime}
 ]],
-		
+ 
 		RESIDENTIAL = "Жилые здания",
 		COMMERCIAL = "Коммерческие",
 		INDUSTRIAL = "Промышленные",
@@ -529,7 +531,7 @@ Die echte Zeit ist jetzt:  ${realtime}
 		SIGNAL = "Стандартный сигнал",
 		ONE_WAY_SIGNAL = "Односторонний сигнал",
 		WAYPOINT = "Путевая точка",
-
+ 
 		Settings = "Настройки",
 		settings = "Настройки",
 		welcome = "Добро пожаловать",
@@ -620,7 +622,7 @@ Die echte Zeit ist jetzt:  ${realtime}
 		Activation = "Активность",
 		Finances = "Финансы",
 		Infrastructure = "Инфраструктура",
-		
+ 
 		["Welcome back"] = "С возвращением",
 		["Program Startup"] = "Запуск программы",
 		["Game Load"] = "Начало загрузки карты",
@@ -683,8 +685,9 @@ Die echte Zeit ist jetzt:  ${realtime}
 		["Railroad Crossings"] = "Ж/д переезды",
 		["Town Buildings"] = "Городские здания",
 		["Person Capacity"] = "Вместимость",
+		["Placeholder Cubes"] = "Кубики-заполнители",
 		["Thank You"] = "Спасибо",
-		
+ 
 		NotesTFHint = "Заметки, ToDo, ...",
 		NotesTFTT = "Вы можете использовать это поле для личных заметок, списков задач и т. п.",
 		gamebarInsertSet = "Вставить слева в игровую панель",
@@ -728,7 +731,7 @@ Die echte Zeit ist jetzt:  ${realtime}
 Игра состоит из сущностей разных типов. 
 Этот мод структурирован путем чтения и суммирования данных отдельно от этих типов (псевдо) сущностей.]],
 		SetRuntimeTT = [[
-Расчет выполняется в потоке игры/скрипта, который выполняется 5 раз в секунду (200 мс). 
+Расчёт выполняется в потоке игры/скрипта, который выполняется 5 раз в секунду (200 мс). 
 Некоторые вычисления могут занять некоторое время из-за итерации по всем объектам. 
 Продолжительность зависит от типа объекта и количества объектов в игре или в текущем представлении.
 Если все вычисления обновления игры превышают 200 мс, симуляция игры начинает 'заикаться'. 
@@ -739,7 +742,10 @@ Die echte Zeit ist jetzt:  ${realtime}
 Это позволит поддерживать значения игровой панели в актуальном состоянии. 
 Но не активируйте слишком много из них с длительным временем выполнения, это приведет к задержкам моделирования.
 В ранней игре вы можете активировать больше, чем в поздней.]],
-		SetGamebarTT = [[Это показывает краткую информацию в игровой панели.]],
+		SetGamebarTT = [[Показывает краткую информацию в игровой панели.]],
+		freedataTT = [[
+Удалить данные из состояния. (для предотвращения большого размера данных, чтобы избежать возможных игровых проблем при выходе)
+Если вы хотите продолжить, не активируйте скрипт повторно, а перезагрузите его.]],
 	},
 	
 	
