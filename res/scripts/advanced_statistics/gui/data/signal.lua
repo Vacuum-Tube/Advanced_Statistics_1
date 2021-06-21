@@ -53,17 +53,17 @@ return {
 		}},
 		
 		"<hline>",
-		{	text = _("States"),
+		{	text = _("State"),
 			style = "AVSHeading2"
 		},
 		{ table = {
 			{
-				_("State").." ".._("Off"),
+				_("Off"),
 				function(data) return
 					tostring(data.States[1])
 				end
 			},{
-				_("State").." ".._("On"),
+				_("On"),
 				function(data) return
 					tostring(data.States[2])
 				end

@@ -10,7 +10,7 @@ function crossingdata.getInfo(circle)
 	
 	local num = 0
 	local d = {
-		States = list.CountList:new(2),
+		States = list.CountList:new(3),
 		StTimes = list.ValueList:new(),
 		types = list.CountList:new({},true),
 	}
@@ -18,7 +18,7 @@ function crossingdata.getInfo(circle)
 	for _,id in pairs(crossings) do
 		local crossing = api.engine.getComponent(id, api.type.ComponentType.RAILROAD_CROSSING)
 		num = num + 1
-		d.States:count(crossing.state+1) -- 0 open, 1 closed
+		d.States:count(crossing.state+1) -- 0 open, 1 closed, 2 opening
 		d.StTimes:newVal(crossing.stateTime, crossing.stateTime>0) -- usec
 		d.types:count(res.all[crossing.typeIndex])
 	end

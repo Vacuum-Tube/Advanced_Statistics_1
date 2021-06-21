@@ -1,6 +1,6 @@
 --[[
 Gui Objects
-Version: 0.1
+Version: 0.2
 
 Copyright (c)  2021  "VacuumTube"  (https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
 
@@ -18,6 +18,7 @@ local guibuilder = require "advanced_statistics/gui/guibuilder"
 local bgui = require "advanced_statistics/gui/basic"
 local format = require "advanced_statistics/gui/format"
 local a = require "advanced_statistics/adv".sks()
+local ScriptEvent = (require "advanced_statistics/script/event").ScriptEvent
 
 local g = {}
 
@@ -175,13 +176,14 @@ function g.LoadDemand(contentfunc,defaultcontent,returnfunc)
 		end
 	end
 	local layout = bgui.LayoutV()
-	local loadbutton = bgui.Button(_("Load"),function()
+	local loadbutton = bgui.Button(_("Load"),function() xpcall(function()
 		-- layout:removeItem(loadbutton)
 		for i=1,layout:getNumItems() do
 			layout:removeItem(layout:getItem(0))
 		end
 		layout:addItem(contentfunc())
-	end, nil, nil)--, "AVSLoadDemandButton")
+	end, g.errorHandler) end,
+		nil, nil)--, "AVSLoadDemandButton")
 	loadbutton:addStyleClass("AVSLoadDemandButton")
 	layout:addItem(loadbutton)
 	if defaultcontent then
@@ -190,6 +192,10 @@ function g.LoadDemand(contentfunc,defaultcontent,returnfunc)
 	local comp = bgui.Comp()
 	comp:setLayout(layout)
 	return comp
+end
+
+function g.errorHandler(msg)
+	ScriptEvent("error", {msg=msg, loc="Gui Objects", traceback=debug.traceback()} )
 end
 
 

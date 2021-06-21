@@ -27,6 +27,7 @@ local r = {
 		STREET_CONSTRUCTION = 3,
 		NONE = 1,
 		AIRPORT_CARGO = 0,
+		TRACK_CONSTRUCTION = 0,
 	}
 }
 

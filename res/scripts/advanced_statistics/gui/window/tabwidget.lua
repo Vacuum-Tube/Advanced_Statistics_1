@@ -32,6 +32,7 @@ end
 
 
 function t.init(state,window,gamebar)
+	log(2,"Create tabwidget")
 	local tabwidget = guio.Tabwidget("WEST")  -- "NORTH"
 	t.tabwidget = tabwidget
 	-- tabwidget:setId(t.tabwidgetId)  -- translation bug
@@ -53,6 +54,7 @@ function t.init(state,window,gamebar)
 	
 	if not state.error then
 	for i,datastr in pairs(datalist) do  -- all data tabs
+		log(2,"Create tab",datastr)
 		local num = tabwidget:getNumTabs()
 		t.datatabmap[datastr] = num
 		t.datatabmapr[num] = datastr

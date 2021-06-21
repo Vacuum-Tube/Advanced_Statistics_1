@@ -37,6 +37,9 @@ function data()
 			local params = modParams[getCurrentModId()]
 			-- print("params")
 			-- debugPrint(params)
+			
+			assert(not game.avs, info.name.." loaded twice!")
+			
 			game.avs = {
 				runfn = {
 					clock = os.clock(),

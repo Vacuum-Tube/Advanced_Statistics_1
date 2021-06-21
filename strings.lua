@@ -415,6 +415,7 @@ Die echte Zeit ist jetzt:  ${realtime}
 		Activation = "Aktivierung",
 		Finances = "Finanzen",
 		Infrastructure = "Infrastruktur",
+		Opening = "Am Öffnen",
 		
 		["Welcome back"] = "Willkommen zurück",
 		["Program Startup"] = "Program Start",

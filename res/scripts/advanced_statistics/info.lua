@@ -10,7 +10,7 @@ return {
 	},"\n"),
 	version = {
 		major = 1,
-		minor = 6,
+		minor = 7,
 	},
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",
@@ -23,6 +23,11 @@ return {
 		donate = "https://paypal.me/VacuumTubeTPF",
 	},
 	changelog = [[
+1.7  2021-06-21
+-Adjust to new con. type TRACK_CONSTRUCTION (resources)
+-Adjust to new railroad crossing state
+-Add more logs and error handling
+
 1.6  2021-05-27
 -Transportfever.net Release
 

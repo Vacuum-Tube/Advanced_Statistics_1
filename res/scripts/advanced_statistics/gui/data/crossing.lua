@@ -23,19 +23,24 @@ return {
 		}},
 		
 		"<hline>",
-		{	text = _("States"),
+		{	text = _("State"),
 			style = "AVSHeading2"
 		},
 		{ table = {
 			{
-				_("State").." ".._("Open"),
+				_("Open"),
 				function(data) return
 					tostring(data.States[1])
 				end
 			},{
-				_("State").." ".._("Closed"),
+				_("Closed"),
 				function(data) return
 					tostring(data.States[2])
+				end
+			},{
+				_("Opening"),
+				function(data) return
+					tostring(data.States[3])
 				end
 			},
 		}},
