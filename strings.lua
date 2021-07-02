@@ -60,9 +60,12 @@ If the total runtime exceeds 200ms, this leads to lagging in the simulation. Thi
 
 
 [h2]Problems/Bugs[/h2]
-I have tested the mod extensively, but I can't exclude possible bugs. That's why I included an error handler to prevent the game from crashing. In such a case, a window will be displayed. 
-But all information is also written into the [u][url=https://www.transportfever2.com/wiki/doku.php?id=gamemanual:gamefilelocations ]stdout txt[/url][/u]. In that case, please set the log level to 2 in the mod settings, reproduce the error and send me the stdout file.
-
+I have tested the mod extensively, but I can't exclude possible bugs. That's why I included an error handler to prevent the game from crashing. In such a case, a window will be displayed. But all information is also written into the [u][url=https://www.transportfever2.com/wiki/doku.php?id=gamemanual:gamefilelocations ]stdout txt[/url][/u].
+[u][b]If an error occurs, please do the following:[/b][/u] [olist]
+[*]In the mod settings, set Log Level to 2
+[*]Reproduce the error
+[*]Send me stdout file
+[/olist]
 
 [h2]Background[/h2]
 This project is by far the biggest and most elaborate mod I have created for Transport Fever 2.
@@ -249,9 +252,12 @@ Damit die Werte in der Gamebar aktuell bleiben, kann man in den Einstellungen au
 
 
 [h2]Probleme/Bugs[/h2]
-Ich habe die Mod ausführlichst getestet, kann aber mögliche Fehler nicht ausschließen. Deswegen habe ich einen Error Handler eingebaut, damit das Spiel nicht abstürzt. In einem solchen Fall wird ein Fenster angezeigt. 
-Alle Informationen werden aber auch in die [u][url=https://www.transportfever2.com/wiki/doku.php?id=gamemanual:gamefilelocations ]stdout txt[/url][/u] geschrieben. Diese bräuchte ich in dem Fall. Bitte dann in den Mod Einstellungen das Log Level auf 2 setzen und den Fehler reproduzieren.
-
+Ich habe die Mod ausführlichst getestet, kann aber mögliche Fehler nicht ausschließen. Deswegen habe ich einen Error Handler eingebaut, damit das Spiel nicht abstürzt. In einem solchen Fall wird ein Fenster angezeigt. Alle Informationen werden aber auch in die [u][url=https://www.transportfever2.com/wiki/doku.php?id=gamemanual:gamefilelocations ]stdout txt[/url][/u] geschrieben. 
+[u][b]Bei einem Fehler bitte Folgendes machen:[/b][/u] [olist]
+[*]In den Mod-Einstellungen das Log Level auf 2 setzen
+[*]Den Fehler reproduzieren
+[*]Mir die stdout schicken
+[/olist]
 
 [h2]Hintergrund[/h2]
 Dieses Projekt ist mit Abstand die größte und aufwändigste Mod, die ich für Transport Fever 2 erstellt habe.

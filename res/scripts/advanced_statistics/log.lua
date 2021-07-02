@@ -1,6 +1,6 @@
 --[[
 Logger
-Version: 0.1
+Version: 0.2
 
 Copyright (c)  2021  "VacuumTube"  (https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
 
@@ -12,6 +12,9 @@ following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial
 portions of the Software.
 --]]
+
+
+local info = require "advanced_statistics/info"
 
 
 local l = {}
@@ -78,7 +81,7 @@ function l.logError(msg,loc,tb)
 	print("Location:",loc)
 	print("Message:",msg)
 	print(tb or debug.traceback())
-	print("===== Advanced Statistics - Please submit this message to the mod author")
+	print("===== Advanced Statistics - Please submit this message to the mod author - "..info.modlink.steambugthread)
 end
 
 setmetatable(l, {

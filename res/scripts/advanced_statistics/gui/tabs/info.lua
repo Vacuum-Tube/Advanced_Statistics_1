@@ -14,7 +14,13 @@ return function()
 				},
 				bgui.Button(string.format("%s %d.%d", _("Version"), info.version.major, info.version.minor),
 					function()
-						bgui.Window(bgui.Text(info.changelog), _("Changelog"))
+						bgui.Window(guibuilder.buildScrollLayout("BoxV", {
+							{
+								text = info.changelog,
+								selectable = true,
+							}
+						}), _("Changelog")
+						)
 					end),
 				{
 					text = "© VacuumTube",
@@ -29,6 +35,7 @@ return function()
 		"<hline>",
 		{
 			text = info.desc,
+			selectable = true,
 		},
 		
 		"<hline>",

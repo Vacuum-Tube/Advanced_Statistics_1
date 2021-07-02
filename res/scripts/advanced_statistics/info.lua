@@ -10,12 +10,13 @@ return {
 	},"\n"),
 	version = {
 		major = 1,
-		minor = 7,
+		minor = 8,
 	},
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",
 		tfnet = "https://www.transportfever.net/filebase/index.php?entry/6204-advanced-statistics/",
 		github = "https://github.com/Vacuum-Tube/Advanced_Statistics_1",
+		steambugthread = "https://steamcommunity.com/workshop/filedetails/discussion/2454731512/3167694551641497821/",
 	},
 	VacuumTube = {
 		steam = "https://steamcommunity.com/profiles/76561198342751450/myworkshopfiles/?appid=1066780",
@@ -23,6 +24,9 @@ return {
 		donate = "https://paypal.me/VacuumTubeTPF",
 	},
 	changelog = [[
+1.8  2021-07-02
+-Minor changes
+
 1.7  2021-06-21
 -Adjust to new con. type TRACK_CONSTRUCTION (resources)
 -Adjust to new railroad crossing state
