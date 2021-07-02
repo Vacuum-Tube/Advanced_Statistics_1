@@ -66,6 +66,7 @@ I have tested the mod extensively, but I can't exclude possible bugs. That's why
 [*]Reproduce the error
 [*]Send me stdout file
 [/olist]
+[img]https://raw.githubusercontent.com/Vacuum-Tube/Advanced_Statistics_1/main/pictures/loglevel2.png[/img]
 
 [h2]Background[/h2]
 This project is by far the biggest and most elaborate mod I have created for Transport Fever 2.
@@ -258,6 +259,7 @@ Ich habe die Mod ausführlichst getestet, kann aber mögliche Fehler nicht aussc
 [*]Den Fehler reproduzieren
 [*]Mir die stdout schicken
 [/olist]
+[img]https://raw.githubusercontent.com/Vacuum-Tube/Advanced_Statistics_1/main/pictures/loglevel2.png[/img]
 
 [h2]Hintergrund[/h2]
 Dieses Projekt ist mit Abstand die größte und aufwändigste Mod, die ich für Transport Fever 2 erstellt habe.

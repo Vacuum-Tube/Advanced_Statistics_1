@@ -5,7 +5,7 @@ return {
 	desc = steamdesc.replacedesc(_("mod_desc")),
 	desc_steam = table.concat({  -- complete description for steam
 		_("mod_desc"),
-		string.format("[h3]%s:[/h3]\n%s  %s!\n", _("mod_desc_paypal"), "[url=https://paypal.me/VacuumTubeTPF ][img]https://i.imgur.com/cYGJEcZ.jpg [/img][/url]", _("Thank You") ), --https://i.imgur.com/GpY6AzF.png  https://i.imgur.com/02auDOA.png
+		string.format("[h3]%s:[/h3]\n%s  %s!\n", _("mod_desc_paypal"), "[url=https://paypal.me/VacuumTubeTPF ][img] https://raw.githubusercontent.com/Vacuum-Tube/Advanced_Statistics_1/main/pictures/paypal.png [/img][/url]", _("Thank You") ), --https://i.imgur.com/cYGJEcZ.jpg
 		_("mod_desc_discussion"),
 	},"\n"),
 	version = {
