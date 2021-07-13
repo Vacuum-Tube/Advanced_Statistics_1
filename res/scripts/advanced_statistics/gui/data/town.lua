@@ -211,15 +211,19 @@ return {
 		},
 		{ table = {
 			{
-				_("Towns").." ".._("supplied").." (".._("partially")..")",
+				{	text = _("Towns").." ".._("supplied").." (".._("partially")..")",
+					tooltip = "> 0 %"
+				},
 				function(data) return
-					string.format("%d/%d", data.townSuppliedPart.count_, data.count)
+					string.format("%d/%d", data.townSuppliedPart.count_, data.townswCargo.count_)
 				end
 			},
 			{
-				_("Towns").." ".._("supplied").." (".._("completely")..")",
+				{	text = _("Towns").." ".._("supplied").." (".._("completely")..")",
+					tooltip = "> 75 % (because game values fluctuate)"
+				},
 				function(data) return
-					string.format("%d/%d", data.townSuppliedFull.count_, data.count)
+					string.format("%d/%d", data.townSuppliedFull.count_, data.townswCargo.count_)
 				end
 			},
 		}},

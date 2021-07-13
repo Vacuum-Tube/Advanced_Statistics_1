@@ -126,16 +126,21 @@ function script.update()  -- gamescript update
 		log(1,"Calc all data")
 		if not xpcall(script.calc, script.errorHandler, true) then
 			log(1, "Error while Calc all data")
+			if not state.error then
+				log(0, "Unkown Error, errorHandler was skipped!")
+				state.error = {msg="Unkown Error, errorHandler was skipped!", loc="Script Init"}
+			end
 		end
 		if not state.data.game and not state.error then
-			log(0, "Unkown Error, errorHandler was skipped!")
-			state.error = {msg="Unkown Error, errorHandler was skipped!", loc="Script Init"}
+			log(0, "Unkown Error, errorHandler was skipped 2!")
+			state.error = {msg="Unkown Error, errorHandler was skipped 2!", loc="Script Init"}
 		end
 		log(2,"State:",state)
 		log.logTab(2,state)
 	else
 		if state.active then
 			if not xpcall(script.calc, script.errorHandler, false) then
+				log(1, "Error while Calc update")
 				state.active = false
 			end
 		end

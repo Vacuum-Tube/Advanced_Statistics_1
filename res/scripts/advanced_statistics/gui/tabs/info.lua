@@ -67,11 +67,17 @@ return function()
 		
 		_("Donate")..":",
 		bgui.Button(bgui.Icon("ui/advanced_statistics/paypal.tga"),function()
-			bgui.Window(guibuilder.buildCompLayout("BoxV", {
+			local w
+			local b = bgui.Button(guibuilder.buildComponent({
+				text = _("Thank You").."!",
+				style = "AVSHeading2"
+			}),function()
+				game.gui.playSoundEffect("startGame")
+				w:close()
+			end)
+			w = bgui.Window(guibuilder.buildCompLayout("BoxV", {
 				bgui.TextInput(info.VacuumTube.donate),
-				{	text = _("Thank You").."!",
-					style = "AVSHeading2"
-				},
+				b,
 			}), _("Donate"), "ui/button/small/sell.tga", {h=600,v=700})
 		end),
 		

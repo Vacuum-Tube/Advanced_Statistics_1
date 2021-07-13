@@ -10,7 +10,7 @@ return {
 	},"\n"),
 	version = {
 		major = 1,
-		minor = 8,
+		minor = 9,
 	},
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",
@@ -24,6 +24,11 @@ return {
 		donate = "https://paypal.me/VacuumTubeTPF",
 	},
 	changelog = [[
+1.9  2021-07-13
+-Improve fallback for mysterious errors
+-Supplied towns: consider towns without cargo needs; redefine completely to 75%
+-Add sound effect to donate button
+
 1.8  2021-07-02
 -Minor changes
 

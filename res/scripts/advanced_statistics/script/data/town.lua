@@ -26,6 +26,7 @@ function towndata.getInfo(circle)
 		CargoTypesLimit = list.CountList:new({},true),
 		townSuppliedPart = list.CountList:new(),
 		townSuppliedFull = list.CountList:new(),
+		townswCargo = list.CountList:new(),
 	}
 	
 	--api.engine.system.townBuildingSystem.getTown2personCapacitiesMap()
@@ -59,12 +60,15 @@ function towndata.getInfo(circle)
 			d.CargoTypesSupply:count(cargo,CargoSupplyAndLimit[1])
 			d.CargoTypesLimit:count(cargo,CargoSupplyAndLimit[2])
 		end
-		local townSupply = (tSupplyAndLimit.sum[2]>0) and tSupplyAndLimit.sum[1]/tSupplyAndLimit.sum[2] or 0
+		local townSupply = tSupplyAndLimit.sum[1]/tSupplyAndLimit.sum[2]
 		if townSupply>0 then
 			d.townSuppliedPart:count()
 		end
-		if townSupply>=1 then
+		if townSupply>=0.75 then
 			d.townSuppliedFull:count()
+		end
+		if tSupplyAndLimit.sum[2]>0 then
+			d.townswCargo:count()
 		end
 	end
 	
