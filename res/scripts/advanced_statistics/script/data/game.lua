@@ -121,11 +121,13 @@ end
 
 function g.getAccount()
 	local acc = api.engine.getComponent(g.getPlayerID(),api.type.ComponentType.ACCOUNT)
+	local player = game.interface.getEntity(g.getPlayerID())
 	return {
-		balance = acc.balance,
+		-- balance = acc.balance,  behaves weird if balance=-9.2233720276152e+18
+		balance = player.balance,
 		loan = acc.loan,
 		maximumLoan = acc.maximumLoan,
-		total = acc.balance - acc.loan,
+		total = player.balance - acc.loan,
 	}
 end
 

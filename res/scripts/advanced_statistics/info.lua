@@ -10,7 +10,7 @@ return {
 	},"\n"),
 	version = {
 		major = 1,
-		minor = 9,
+		minor = 10,
 	},
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",
@@ -24,6 +24,9 @@ return {
 		donate = "https://paypal.me/VacuumTubeTPF",
 	},
 	changelog = [[
+1.10  2021-09-17
+-Stabilized, workarounds for some of the errors (not 100% resolved)
+
 1.9  2021-07-13
 -Improve fallback for mysterious errors
 -Supplied towns: consider towns without cargo needs; redefine completely to 75%
