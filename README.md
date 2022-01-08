@@ -1,6 +1,10 @@
-# Advanced Statistics
+# Advanced Statistics [![Steam](https://img.shields.io/steam/downloads/2454731512.svg?label=Steam&logo=steam)](https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512)
  
-This is the codebase for my Transport Fever 2 Mod: https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512
+This is the codebase for my Transport Fever 2 Mod: 
+
+https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512
+
+https://www.transportfever.net/filebase/index.php?entry/6204-advanced-statistics/
 
 ## Changelog
 https://github.com/Vacuum-Tube/Advanced_Statistics_1/blob/main/res/scripts/advanced_statistics/info.lua
