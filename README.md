@@ -7,7 +7,7 @@ https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512
 https://www.transportfever.net/filebase/index.php?entry/6204-advanced-statistics/
 
 ## Changelog
-https://github.com/Vacuum-Tube/Advanced_Statistics_1/blob/main/res/scripts/advanced_statistics/info.lua
+https://github.com/Vacuum-Tube/Advanced_Statistics_1/blob/main/res/scripts/advanced_statistics/changelog.lua
 
 ## Structure
 I can just roughly explain the structure of this mod. For details you can ask me.
