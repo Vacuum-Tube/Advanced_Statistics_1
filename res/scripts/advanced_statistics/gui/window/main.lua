@@ -80,6 +80,12 @@ end
 
 function w.destroy()
 	log(1, "Destroy Window")
+	w.window:remove()
+	w.window = nil
+end
+
+function w.destroy2()
+	log(1, "Destroy Window")
 	local layout = w.window:getLayout()
 	for i=1,layout:getNumItems() do
 		local item = layout:getItem(0)

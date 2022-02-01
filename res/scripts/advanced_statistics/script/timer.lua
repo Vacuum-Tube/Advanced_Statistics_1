@@ -41,11 +41,15 @@ function t.reset()
 end
 
 function t.timefunc(f,n,...)
+	n = n or 1
 	t.start()
-	for i=1,(n or 1) do
+	for i=1,n do
 		f(...)
 	end
-	print("Total Time for "..(n or 1).."x: "..t.stop().." s")
+	local time = t.stop()
+	print(string.format("Total Time for %dx: %.3f s %s", n, time,
+		n~=1 and string.format("  Average: %.3f ms", time*1000/n) or ""
+	))
 end
 
 return t

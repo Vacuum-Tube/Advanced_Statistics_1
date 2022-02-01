@@ -5,6 +5,7 @@ local guibuilder = require "advanced_statistics/gui/guibuilder"
 local log = (require "advanced_statistics/log").logPrefix("window.resources-tab")
 local resdata = require "advanced_statistics/script/resdata"
 local reslist = require "advanced_statistics/script/reslist"
+local _ = function(x) return x end  -- translate not working in onclick, only creating problems...
 
 return {
 	icon = "ui/folder.tga",--"ui/folder_open.tga",--"ui/resolution.tga",
@@ -157,7 +158,8 @@ return {
 						} )
 					}
 				}
-			}
+			},
+			nil, false
 			)
 		end,
 		guibuilder.buildCompLayout("BoxV", {

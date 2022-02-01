@@ -17,7 +17,7 @@ return function()
 						bgui.Window(guibuilder.buildScrollLayout("BoxV", {
 							{
 								text = info.changelog,
-								selectable = true,
+								selectable = false,
 							}
 						}), _("Changelog")
 						)

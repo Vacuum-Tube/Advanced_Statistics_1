@@ -59,8 +59,6 @@ function edgedata.getInfo(circle)
 		
 		local track = api.engine.getComponent(id,api.type.ComponentType.BASE_EDGE_TRACK)
 		local street = api.engine.getComponent(id,api.type.ComponentType.BASE_EDGE_STREET)
-		assert(track or street)
-		assert(not (track and street))
 		local EdgeType
 		local edgeType
 		
@@ -151,7 +149,7 @@ end
 
 function edgedata.getNodePos(id)
 	local comp = api.engine.getComponent(id, api.type.ComponentType.BASE_NODE)
-	return comp.position  -- table
+	return comp.position  -- Vec3f
 end
 
 function edgedata.getLength(v1,v2)  -- approx (direct)

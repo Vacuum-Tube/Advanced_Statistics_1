@@ -1,6 +1,6 @@
 --[[
 Gui Objects
-Version: 0.2
+Version: 0.2.1
 
 Copyright (c)  2021  "VacuumTube"  (https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
 
@@ -77,7 +77,7 @@ function g.Table(dataorder,coloumns,header,dataupdate,visupdate,type)
 end
 
 
-function g.Tabwidget(orientation,tabs,tabfunc,icons,updatedata,pretabs,default)
+function g.Tabwidget(orientation,tabs,tabfunc,icons,updatedata,pretabs,default,translate)
 	local tabwidget = api.gui.comp.TabWidget.new(orientation or "NORTH")
 	local function addtab(name,content,icon,updatedata)
 		if type(content)=="table" then
@@ -98,7 +98,7 @@ function g.Tabwidget(orientation,tabs,tabfunc,icons,updatedata,pretabs,default)
 	end
 	if tabs then
 		for i,tabname in pairs(tabs) do
-			addtab(_(tabname), tabfunc(tabname), icons and bgui.Icon(type(icons)=="table" and icons[tabname] or icons(tabname)), updatedata and function() return updatedata()[tabname] end)
+			addtab(translate~=false and _(tabname) or tabname, tabfunc(tabname), icons and bgui.Icon(type(icons)=="table" and icons[tabname] or icons(tabname)), updatedata and function() return updatedata()[tabname] end)
 		end
 		tabwidget:setCurrentTab(default or 0,false)
 	end

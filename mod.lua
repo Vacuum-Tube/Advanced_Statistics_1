@@ -2,7 +2,7 @@ local info = require "advanced_statistics/info"
 function data()
 	return {
 		info = {
-			name = info.name,
+			name = "Advanced Statistics",--info.name,
 			description = info.desc_steam,
 			minorVersion = info.version.minor,
 			severityAdd = "NONE",

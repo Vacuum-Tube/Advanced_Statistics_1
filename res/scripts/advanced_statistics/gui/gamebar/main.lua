@@ -127,12 +127,12 @@ end
 function g.destroy()
 	log(1, "Destroy Gamebar Buttons")
 	g.menuRight():removeItem(buttonAVS)
-	buttonAVS:destroy()
+	api.gui.util.destroyLater(buttonAVS)
 	
 	local gameInfo = g.gameInfo()
 	for datastr,button in pairs(buttons) do
 		gameInfo:removeItem(button)
-		button:destroy()
+		api.gui.util.destroyLater(button)
 	end
 end
 

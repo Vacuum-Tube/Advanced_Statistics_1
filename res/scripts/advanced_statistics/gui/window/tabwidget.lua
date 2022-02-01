@@ -37,6 +37,7 @@ function t.init(state,window,gamebar)
 	t.tabwidget = tabwidget
 	-- tabwidget:setId(t.tabwidgetId)  -- translation bug
 	for i,tabstr in pairs(t.tablist) do
+		log(2,"Create tab",tabstr)
 		-- tabwidget:addTabText(_(tabstr), t.tabs[tabstr](state,window,gamebar) )
 		local content = t.tabs[tabstr](state,window,gamebar)
 		content:addStyleClass("AVSTabContent")

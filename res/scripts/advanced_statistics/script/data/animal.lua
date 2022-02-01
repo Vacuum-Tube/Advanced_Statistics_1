@@ -32,9 +32,9 @@ function animaldata.getInfo(circle)
 		d.counts:newVal(#fatInstances)
 	end
 	
-	for modelId,count in pairs(tmodels) do -- writing in the same table that is iterated, this value is also getting called
-		d.models[res.all[modelId+1]] = count
-		-- d.models[modelId] = nil
+	for modelId,count in pairs(tmodels) do
+		-- d.models[res.all[modelId+1]] = count
+		d.models[api.res.modelRep.getName(modelId)] = count
 	end
 	
 	d.counts:finish()

@@ -33,7 +33,8 @@ function signaldata.getInfo(circle)
 	end
 	
 	for modelId,count in pairs(tmodels) do
-		d.models[res.all[modelId+1]] = count
+		-- d.models[res.all[modelId+1]] = count
+		d.models[api.res.modelRep.getName(modelId)] = count
 	end
 	
 	d.StTimes:finish()

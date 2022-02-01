@@ -280,7 +280,7 @@ Der Quellcode zur Mod ist auf GitHub verfügbar: https://github.com/Vacuum-Tube/
 Ich habe auch zahlreiche Ideen für die Weiterentwicklung. Allerdings brauche ich jetzt erstmal eine Pause vom Programmieren.
 
 ]],
-		mod_desc_paypal = [[Wenn du meine Mod Entwicklung unterstützen möchtest, würde ich mich über eine Spende freuen]],
+		mod_desc_paypal = [[Wenn Du meine Mod Entwicklung unterstützen möchtest, würde ich mich über eine Spende freuen]],
 		mod_desc_discussion = [[
 Für Feedback, Vorschläge, Bugs, Crashes oder Fragen zu den Statistiken selbst, bitte das entsprechende Diskussionsforum hier drunter benutzen.
 ]],
