@@ -28,6 +28,7 @@ local r = {
 		NONE = 1,
 		AIRPORT_CARGO = 0,
 		TRACK_CONSTRUCTION = 0,
+		WATER_WAYPOINT = 5,
 	}
 }
 

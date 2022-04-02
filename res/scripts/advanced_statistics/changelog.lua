@@ -1,4 +1,7 @@
 return [[
+1.12  2022-04-02
+- Add new con. type WATER_WAYPOINT (spring update)
+
 1.11  2022-02-01
 - Fix modelRep issue when models are removed from savegame (api.res.modelRep.getAll not working correctly!)
 - Fix Translate issues (Translate still buggy in Callback Events!)
