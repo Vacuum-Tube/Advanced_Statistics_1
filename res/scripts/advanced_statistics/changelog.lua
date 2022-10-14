@@ -1,4 +1,7 @@
 return [[
+1.13  2022-10-14
+- Fix/Workaround crash for weird stations (e.g. created by Freestyle Mod if combined cargo/person)
+
 1.12  2022-04-02
 - Add new con. type WATER_WAYPOINT (spring update)
 

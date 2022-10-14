@@ -44,10 +44,9 @@ function stationdata.getInfo(circle)
 		
 		if stationGroup.name~="" then
 		for _,id in pairs(stationGroup.stations) do
-			-- print("",id)
-			local station = game.interface.getEntity(id)  -- component no carrier info?  -- CRASHES if station is strange, name = ""
-			-- print("",station.name)
-			-- local a=api.engine.getComponent(id,api.type.ComponentType.STATION)
+			if api.engine.getComponent(id,api.type.ComponentType.NAME)==nil then	goto continue end  -- ugly workaround, combined Freestyle station that create crash seem to be distinguishable by this
+			local station = game.interface.getEntity(id)  -- CRASHES if station is strange, sometimes name = "" , or lollus Freestyle if combined station
+			-- local a=api.engine.getComponent(id,api.type.ComponentType.STATION)  -- component no carrier info?
 			-- if a and a.terminals and a.terminals[1] and a.terminals[1].personNodes and a.terminals[1].personNodes[1] then 
 				-- print(a.terminals[1].personNodes[1].entity)
 				-- local c = api.engine.getComponent(a.terminals[1].personNodes[1].entity,api.type.ComponentType.CONSTRUCTION)
@@ -76,6 +75,8 @@ function stationdata.getInfo(circle)
 			-- end
 			local Samples = game.interface.getStationTransportSamples(id)  -- sum is ~equal as in town
 			d.TransportSamples:newVal(Samples, Samples[1]>=0 and Samples[2]>=0)  -- apparently only for passenger
+			
+			 ::continue::
 		end
 		end
 		d.countStations:newVal(#stationGroup.stations)
