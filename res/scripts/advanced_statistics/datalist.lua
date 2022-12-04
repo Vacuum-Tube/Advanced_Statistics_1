@@ -1,5 +1,6 @@
 return {
 	"game",
+	"world",
 	"finances",
 	"town",
 	"industry",

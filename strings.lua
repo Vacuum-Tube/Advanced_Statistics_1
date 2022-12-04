@@ -168,6 +168,7 @@ which will be about 'Total Size' (if landuse is evenly distributed)]],
 		advadvTT = "Show additional data elements",
 		showWindowSet = "Show window at start",
 		startSoundSet = "Startup Sound Notifications",
+		waterAreaTT = "This in general underestimates the real water area",
 		startSoundSetTT = [[Play Sound after the game has loaded. 
 The first sound indicates guiInit (the start of the black screen), the second one the gui initialisation of the statistics window.]],
 		SetDatatypeTT = [[
@@ -424,6 +425,11 @@ Die echte Zeit ist jetzt:  ${realtime}
 		Finances = "Finanzen",
 		Infrastructure = "Infrastruktur",
 		Opening = "Am Öffnen",
+		World = "Welt",
+		Resolution = "Auflösung",
+		Area = "Fläche",
+		relative = "relativ",
+		inaccurate = "ungenau",
 		
 		["Welcome back"] = "Willkommen zurück",
 		["Program Startup"] = "Program Start",
@@ -443,6 +449,8 @@ Die echte Zeit ist jetzt:  ${realtime}
 		["Game Difficulty"] = "Spiel Schwierigkeit",
 		["Simulation Speed"] = "Simulation Geschwindigkeit",
 		["Milliseconds per day"] = "Millisekunden pro Tag",
+		["Terrain Height"] = "Gelände Höhe",
+		["Water Level"] = "Wasser Höhe",
 		["Maximum Loan"] = "Maximaler Kredit",
 		["Current Speed"] = "Aktuelle Geschwindigkeit",
 		["Move Mode"] = "Bewegungsart",

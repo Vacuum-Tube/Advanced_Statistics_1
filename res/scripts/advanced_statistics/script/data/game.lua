@@ -1,3 +1,6 @@
+local list = require "advanced_statistics/script/listutil"
+local Polygon = require "advanced_statistics/script/polygon"
+
 local g = {}
 
 function g.getInfo()
@@ -13,7 +16,6 @@ function g.getInfo()
 		millis = g.getMillis(),
 		-- account = g.getAccount(),
 		-- journal = g.getJournalTotal(),
-		worldsize = g.getWorldSize(),
 		transported = g.getTransportedData(),
 		isSandbox = g.isSandbox(),
 		noCosts = g.noCosts(),
@@ -74,30 +76,70 @@ function g.getGameTimeTickCount()
 	return comp.tickCount
 end
 
+
 function g.getWorldSize()
-	local comp = api.engine.getComponent(g.getWorldID(), api.type.ComponentType.BOUNDING_VOLUME)
-	local bbox = comp.bbox
+	local bv = api.engine.getComponent(g.getWorldID(), api.type.ComponentType.BOUNDING_VOLUME)
+	local bbox = bv.bbox
 	return {
 		x = bbox.max.x-bbox.min.x,
 		y = bbox.max.y-bbox.min.y,
 	}
 end
 
-function g.getTerrainTileInfo()
+function g.getWaterLevel()
 	local terrain = api.engine.getComponent(g.getWorldID(), api.type.ComponentType.TERRAIN)
+	return terrain.waterLevel
+end
+
+function g.getTerrainInfo()
+	local terrain = api.engine.getComponent(g.getWorldID(), api.type.ComponentType.TERRAIN)
+	local size = {
+		x = terrain.size.x,
+		y = terrain.size.y,
+	}
+	local resolutionZ = terrain.baseResolution.z
+	local heights = list.ValueList:new()
+	for id=1,size.x*size.y do
+		local comp = api.engine.getComponent(id, api.type.ComponentType.TERRAIN_TILE_HEIGHTMAP)
+		for i,h in pairs(comp.vertices) do
+			heights:newVal(h)
+		end
+	end
+	heights:finish()
 	return {
-		size = {
-			x = terrain.size.x,
-			y = terrain.size.y,
-		},
-		resolution = terrain.baseResolution.x
+		size = size,
+		resolution = terrain.baseResolution.x,
+		resolutionZ = terrain.baseResolution.z,
+		waterLevel = terrain.waterLevel,
+		offsetZ = terrain.offsetZ,
+		heightMin = heights.min*resolutionZ + terrain.offsetZ,
+		heightMax = heights.max*resolutionZ + terrain.offsetZ,
+		heightAv = heights.av*resolutionZ + terrain.offsetZ,
 	}
 end
 
 function g.getWaterTilesInfo()
-	local watermeshentities = api.engine.system.riverSystem.getWaterMeshEntities(api.type.Vec2i.new(-4,-4),api.type.Vec2i.new(2,2))
-	api.engine.getComponent(id, api.type.ComponentType.WATER_MESH)
-	api.engine.getComponent(id, api.type.ComponentType.BOUNDING_VOLUME)
+	local watermeshentities = api.engine.system.riverSystem.getWaterMeshEntities(api.type.Vec2i.new(-50,-50),api.type.Vec2i.new(50,50))  -- tile i , megl map has 96 tiles
+	local areas = list.ValueList:new()
+	for i,id in pairs(watermeshentities) do
+		local wmesh = api.engine.getComponent(id, api.type.ComponentType.WATER_MESH)  -- what size is this / how does it look like?
+		-- local bv = api.engine.getComponent(id, api.type.ComponentType.BOUNDING_VOLUME)
+		-- local bbox = bv.bbox
+		-- areas:newVal((bbox.max.x-bbox.min.x)*(bbox.max.y-bbox.min.y))  -- bigger than geometry
+		local points = {}
+		for i,v in pairs(wmesh.vertices) do
+			table.insert(points, {v.x, v.y})
+		end
+		if #points>0 then
+			local polygon = Polygon:Create(points)
+			-- assert(polygon:IsSelfIntersecting()==false)  -- in general self intersecting
+			areas:newVal(polygon:GetArea())  -- therefore this is smaller than the actual area
+		end
+	end
+	return {
+		numWaterMeshes = #watermeshentities,
+		waterArea = areas.sum,
+	}
 end
 
 

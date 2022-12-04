@@ -55,13 +55,7 @@ return {
 			}, {
 				_("No Costs"),
 				guio.CheckHook(updatedata().noCosts)
-			}, {
-				_("Map Size"),
-				function(data)
-					local size = data.worldsize
-					return string.format("%s  x  %s  =  %s²", format.Length(size.x),  format.Length(size.y),  format.Length(size.x*size.y) )
-				end
-			}
+			}, 
 		}},
 		
 		"<hline>",

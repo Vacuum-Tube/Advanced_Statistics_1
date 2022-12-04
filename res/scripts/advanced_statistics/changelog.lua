@@ -1,4 +1,8 @@
 return [[
+1.14  2022-12-04
+- Add new tab 'world'
+- Add info of terrain and water (area is not accurate due to weird self-intersecting polygons)
+
 1.13  2022-10-14
 - Fix/Workaround crash for weird stations (e.g. created by Freestyle Mod if combined cargo/person)
 
