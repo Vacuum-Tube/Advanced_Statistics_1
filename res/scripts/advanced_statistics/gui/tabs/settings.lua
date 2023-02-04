@@ -172,11 +172,15 @@ return function(state,window,gamebar)
 			),
 			
 			"<hline>",
-			bgui.Button(_("Reload"),function()
-				gamebar.destroy()
-				window.destroy()
-				event.ScriptEventId("avs_reload")
-			end),
+			{
+				button = _("Reload"),
+				style = "AVSButton",
+				onClick = function(self)
+					event.ScriptEventId("avs_reload")
+					self:setEnabled(false)
+					self:getLayout():getItem(0):setText("Reloading ...")
+				end,
+			}
 		}
 	}})
 end

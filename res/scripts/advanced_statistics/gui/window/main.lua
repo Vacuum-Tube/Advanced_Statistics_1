@@ -80,21 +80,8 @@ end
 
 function w.destroy()
 	log(1, "Destroy Window")
-	w.window:remove()
+	w.window:remove()  -- cannot be executed in callback from any component belonging to the window, otherwise:  Warning: a UI element has destroyed itself during handling an event, this leads to undefined behaviour! C:\GitLab-Runner\builds\1BJoMpBZ\0\ug\urban_games\train_fever\src\Lib\UI\debug_util.cpp:417: class std::basic_ostream<char,struct std::char_traits<char> > &__cdecl UI::operator <<(class std::basic_ostream<char,struct std::char_traits<char> > &,const struct UI::DebugOutputLayoutItem &): Assertion `false' failed.
 	w.window = nil
-end
-
-function w.destroy2()
-	log(1, "Destroy Window")
-	local layout = w.window:getLayout()
-	for i=1,layout:getNumItems() do
-		local item = layout:getItem(0)
-		layout:removeItem(item)
-		-- item:destroy()
-	end
-	w.window:setId("")
-	w.tabwidget.destroy()
-	-- how to destroy?
 end
 
 return w

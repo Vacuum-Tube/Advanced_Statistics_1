@@ -1,7 +1,7 @@
 local avs = require "advanced_statistics/main"
 local event = require "advanced_statistics/script/event"
 
-local function reload()
+local function reloadLUA()
 	avs.log("Reload","Thread:",avs.thread.getCurrentThread())
 	avs.package.unload()
 	avs = require "advanced_statistics/main"
@@ -20,7 +20,7 @@ function data()
 					avs.script.event(name, param)
 				elseif id=="avs_reload" then
 					local oldState = avs.script.state
-					local status, ret = pcall(reload)  -- Reloads only Script Thread
+					local status, ret = pcall(reloadLUA)  -- Reloads only Script Thread
 					if not status then
 						event.ScriptEvent("error", {msg=ret, loc="Reload", traceback=""})
 						return  
@@ -43,7 +43,8 @@ function data()
 			-- print("LOAD",avs.thread.getCurrentThread(),state)
 			if state then
 				if state.reload then
-					reload()  -- Reload in gui instance
+					avs.gui.destroyGui()
+					reloadLUA()  -- Reload in gui instance
 					event.ScriptEventId("avs_reloaded_gui")
 					avs.gui.load(state)
 					avs.gui.init()

@@ -55,6 +55,11 @@ function gu.creategui()  -- not working in guiInit
 	end
 end
 
+function gu.destroyGui()
+	gu.gamebar.destroy()
+	gu.window.destroy()
+end
+
 function gu.update()  -- guiUpdate
 	if gu.active then
 		if gu.initbool == false then

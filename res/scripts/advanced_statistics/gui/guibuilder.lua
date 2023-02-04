@@ -1,8 +1,8 @@
 --[[
 Guibuilder
-Version: 0.2
+Version: 0.3
 
-Copyright (c)  2021  "VacuumTube"  (https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
+Copyright (c)  2022  "VacuumTube"  (https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
 associated documentation files (the "Software"), to deal in the Software without restriction,
@@ -16,6 +16,7 @@ portions of the Software.
 
 local log = require "advanced_statistics/log"
 local ScriptEvent = (require "advanced_statistics/script/event").ScriptEvent
+
 
   -- This saves us a lot of gui scripting...
 local g = {}
@@ -172,12 +173,29 @@ g.elements = {
 		elseif type(path)=="function" then
 			local comp = api.gui.comp.ImageView.new("ui/icons/windows/attention.tga")  -- prevent notfound warning
 			comp:onStep( g.errorHandler2(function() 
-				comp:setImage( g.getUpdateVal(path, updatedata), true)
+				comp:setImage( g.getUpdateVal(path, updatedata) or "ui/icons/windows/attention.tga", true)
 			end))
 			return comp
 		else
 			error("TypeError element.icon", 2)
 		end
+	end,
+	button = function(content, updatedata, element)
+		local comp
+		if element.toggle then
+			comp = api.gui.comp.ToggleButton.new(g.buildComponent(content or nil, updatedata))
+			if element.onClick then
+				comp:onToggle(element.onClick)  -- function(toggle)
+			end
+		else
+			comp = api.gui.comp.Button.new(g.buildComponent(content or nil, updatedata), true)
+			if element.onClick then
+				comp:onClick(function()
+					element.onClick(comp)
+				end)
+			end
+		end
+		return comp
 	end,
 	table = function(tab, updatedata, element)
 		local numcols
@@ -224,23 +242,42 @@ g.elements = {
 		local comp = api.gui.comp.ScrollArea.new(content,"")
 		return comp
 	end,
+	window = function(window, updatedata, element)
+		local content = g.buildComponent(window.content, updatedata)
+		local comp = api.gui.comp.Window.new(window.title or "Window", content)
+		comp:setIcon(window.icon or "ui/small_button_info.tga")
+		comp:setPosition(window.pos and window.pos.h or 200, window.pos and window.pos.v or 200)
+		comp:addHideOnCloseHandler()
+		return comp
+	end,
 }
 
 g.properties = {
+	name = function(comp, name)
+		comp:setName(name)
+	end,
 	tooltip = function(comp, tooltip, updatedata)
 		assert(comp.setTooltip, "Element has not setTooltip!")
 		if type(tooltip)=="string" then
 			comp:setTooltip(tooltip)
 		elseif type(tooltip)=="function" then
-			comp:onStep( g.errorHandler2(function()
+			comp:onStep( (function()  --g.errorHandler2
 				comp:setTooltip(tostring(g.getUpdateVal(tooltip, updatedata)))
 			end))
 		else
 			error("TypeError element.tooltip", 2)
 		end
 	end,
-	name = function(comp, name)
-		comp:setName(name)
+	enabled = function(comp, enabled, updatedata)
+		if type(enabled)=="boolean" then
+			comp:setEnabled(enabled)
+		elseif type(enabled)=="function" then
+			comp:onStep( function()
+				comp:setEnabled(g.getUpdateVal(enabled, updatedata) or false)
+			end)
+		else
+			error("TypeError element.enabled", 2)
+		end
 	end,
 	style = function(comp, style, updatedata)
 		if type(style)=="table" then
@@ -248,7 +285,7 @@ g.properties = {
 		elseif type(style)=="string" then
 			comp:setStyleClassList({style})
 		elseif type(style)=="function" then
-			comp:onStep( g.errorHandler2(function()
+			comp:onStep( (function()  --g.errorHandler2
 				local styles = g.getUpdateVal(style, updatedata)
 				for _,style in pairs(styles.add or {}) do
 					comp:addStyleClass(style)
@@ -280,6 +317,9 @@ g.properties = {
 	selectable = function(comp, bool)
 		comp:setSelectable(bool)
 	end,
+	selected = function(comp, bool)
+		comp:setSelected(bool, true)
+	end,
 }
 
 function g.getUpdateVal(elemfunc,updatedata)
@@ -288,14 +328,15 @@ function g.getUpdateVal(elemfunc,updatedata)
 end
 
 function g.errorHandler2(func)
-	return function(...)
-		local status,ret = pcall(func, ...)
-		if status then
-			return ret
-		else
-			g.errorHandler("errorHandler2 "..ret)
-		end
-	end
+	return func
+	-- return function(...)
+		-- local status,ret = pcall(func, ...)
+		-- if status then
+			-- return ret
+		-- else
+			-- g.errorHandler("errorHandler2 "..ret)
+		-- end
+	-- end
 end
 
 function g.errorHandler(msg)

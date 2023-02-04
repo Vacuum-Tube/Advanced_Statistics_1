@@ -1,4 +1,7 @@
 return [[
+1.15  2023-02-04
+- Fix crash on Reload (related to UI destroy on callback)
+
 1.14  2022-12-04
 - Add new tab 'world'
 - Add info of terrain and water (area is not accurate due to weird self-intersecting polygons)
