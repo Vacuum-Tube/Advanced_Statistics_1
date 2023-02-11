@@ -1,4 +1,7 @@
 return [[
+1.16  2023-02-11
+- Correct text for difficulty 'very hard'
+
 1.15  2023-02-04
 - Fix crash on Reload (related to UI destroy on callback)
 

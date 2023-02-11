@@ -7,6 +7,7 @@ local difficulty = {
 	_("Easy"),
 	_("Medium"),
 	_("Hard"),
+	_("Very Hard"),
 }
 local speedicons = {
 	"ui/button/small/pause.tga",
