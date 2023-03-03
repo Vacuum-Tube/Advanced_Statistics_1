@@ -46,8 +46,8 @@ function towndata.getInfo(circle)
 		
 		Reachability:newVal(interface.getTownReachability(id))  -- [1]: Car, [2]: Line
 		TransportSamples:newVal(interface.getTownTransportSamples(id))
-		d.TrafficRatings:newVal(comp.trafficSpeed) -- interface.getTownTrafficRating(id))
-		d.Emissions:newVal(comp.emission, comp.emission==comp.emission) --interface.getTownEmission(id))  -- can be nan ind
+		d.TrafficRatings:newVal(comp.trafficSpeed, comp.trafficSpeed==comp.trafficSpeed)  -- can be nan ind -- interface.getTownTrafficRating(id))
+		d.Emissions:newVal(comp.emission, comp.emission==comp.emission)  -- can be nan ind --interface.getTownEmission(id))
 		d.developmentActive:count(nil,nil,comp.developmentActive)
 		d.sizeFactor:newVal(comp.sizeFactor)
 		d.growthTendency:newVal(comp.growthTendency)

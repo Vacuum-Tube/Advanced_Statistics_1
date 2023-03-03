@@ -1,4 +1,7 @@
 return [[
+1.17  2023-03-03
+- Fix rare issue leading to unreadable mission state file
+
 1.16  2023-02-11
 - Correct text for difficulty 'very hard'
 
