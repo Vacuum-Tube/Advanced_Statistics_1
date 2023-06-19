@@ -428,6 +428,7 @@ Die echte Zeit ist jetzt:  ${realtime}
 		World = "Welt",
 		Resolution = "Auflösung",
 		Area = "Fläche",
+		Switch = "Weiche",
 		relative = "relativ",
 		inaccurate = "ungenau",
 		

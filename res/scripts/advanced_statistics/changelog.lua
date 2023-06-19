@@ -1,4 +1,8 @@
 return [[
+1.18  2023-06-19
+- Display 3-degree track nodes as "Switch"
+- Check for multiline resource names to prevent displaying bug
+
 1.17  2023-03-03
 - Fix rare issue leading to unreadable mission state file
 

@@ -10,6 +10,9 @@ local nodesstr = {
 	_("Crossing"),
 }
 setmetatable(nodesstr, {__index=function() return nodesstr[4] end})
+local nodesstr_track = table.copy(nodesstr)
+nodesstr_track[3] = _("Switch")
+setmetatable(nodesstr_track, {__index=function() return nodesstr_track[4] end})
 
 return {
 	icon = "ui/icons/game-menu/traffic_layer_traffic_light.tga",
@@ -69,7 +72,7 @@ return {
 		guio.NameValueList(
 			function() return updatedata().NodeDegreeTRACK end,
 			function(idx)
-				return string.format("%d (%s)", idx, nodesstr[idx])
+				return string.format("%d (%s)", idx, nodesstr_track[idx])
 			end
 		),
 		

@@ -15,7 +15,7 @@ return {
 	},"\n"),
 	version = {
 		major = 1,
-		minor = 17,
+		minor = 18,
 	},
 	modlink = {
 		steam = "https://steamcommunity.com/sharedfiles/filedetails/?id=2454731512",

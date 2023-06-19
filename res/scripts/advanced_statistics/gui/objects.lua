@@ -124,8 +124,8 @@ function g.NameValueList(dataupdate,formatname,formatvalue,sort)
 		local names = {}
 		local values = {}
 		for _,name in pairs(datanames) do
-			table.insert(names, formatname and formatname(name) or name )
-			table.insert(values, formatvalue and formatvalue(data[name]) or data[name] )
+			table.insert(names, format.rmLineBreaks(formatname and formatname(name) or name) )
+			table.insert(values, format.rmLineBreaks(formatvalue and formatvalue(data[name]) or data[name] ))
 		end
 		namesText:setText(format.lines(names))
 		valuesText:setText(format.lines(values))

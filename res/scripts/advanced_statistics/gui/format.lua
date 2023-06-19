@@ -1,6 +1,6 @@
 --[[
 Format
-Version: 0.1
+Version: 0.2
 
 Copyright (c)  2021  "VacuumTube"  (https://www.transportfever.net/wsc/index.php?user/29264-vacuumtube/)
 
@@ -105,6 +105,10 @@ function f.linesDict(tab,str,args,sort)
 		table.sort(t)
 	end
 	return f.lines(t)
+end
+
+function f.rmLineBreaks(s)
+	return s and string.gsub(s, "\n", " ")
 end
 
 
