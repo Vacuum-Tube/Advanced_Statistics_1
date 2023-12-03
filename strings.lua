@@ -194,6 +194,477 @@ If you want to continue, don't reactivate script, reload instead.]],
 	},
 	
 	
+	zh_CN = {
+		mod_name = "Advanced Statistics",
+		mod_desc = [[
+This mod will show you additional statistics and extensive information in the game.
+It can be added/removed every time.
+
+[Description also available in game]
+
+Did you ever wanted to know...
+[list]
+[*]How long you played on a savegame (real/game time)?
+[*]More summarized information about towns (Reachability, Cargo Supply)?
+[*]More summarized information about industries (Levels, Production)?
+[*]How many persons there are really simulated?
+[*]Which people are walking, driving or using lines?
+[*]For how long people have been waiting at a station?
+[*]How much cargo is on its way or waiting at stations?
+[*]The employment rate of town buildings?
+[*]How many person capacities there are at a certain area (incl. person magnets)?
+[*]How many vehicles are waiting or stopped?
+[*]How long the (player owned) street network is?
+[*]What percentage of the tracks are electrified?
+[*]Which track types you used and where?
+[*]Information about street/track speed, curve radius and slope?
+[*]How many traffic lights there are in a town?
+[*]How many trees there are on the map?
+[*]How many additional street/track/bridge types, models, etc. there are with mods?
+[*]Financial total statistics?
+[/list]
+If you like statistics, this mod is right for you.
+
+Also useful as tool to find out filenames of objects and for modders.
+
+
+[h2]Structure[/h2]
+The statistics are contained in a window that is displayed at startup.
+They are read from the game sorted by entity types, evaluated and displayed in a tabwidget. Additionally there is general information about the game and application.
+
+For each tab/datatype, a short info can be displayed in the game bar. A click opens the corresponding tab directly. In addition, there is a button in the game bar on the far right to open the window.
+
+Eventually, the mass of information may seem overwhelming at first. I tried to present all relevant and interesting data as compactly and clearly as possible. Nevertheless, you have to deal with it a bit and try it out to understand the different values.
+Some elements have tooltips (hold cursor on them) with additional explanations.
+For experienced users there is a setting for even more data.
+
+
+[h2]Selection[/h2]
+There are 3 ways to specify which items are included in the statistics (for most types): [list]
+[*][b]Global -[/b] All objects of this type on the whole map
+[*][b]View -[/b] All objects in the current view (white circle)
+[*][b]Radius -[/b] All objects in the white circle (radius changeable)
+[/list]
+
+[h2]Calculations[/h2]
+Because of the numerous calculations and iteration over all objects in the game, the calculation time is significant. Therefore, the runtimes are displayed to keep track of them.
+Normally the statistics are only updated when the corresponding tab is selected/visible.
+To keep the values in the gamebar up to date, you can also activate the permanent background execution in the settings. However, this is only possible to a limited extent, depending on data type and savegame progress.
+If the total runtime exceeds 200ms, this leads to lagging in the simulation. This can also be controlled with the debug window (debug mode on, 2x AltGr+i, the lower one).
+
+
+[h2]Problems/Bugs[/h2]
+I have tested the mod extensively, but I can't exclude possible bugs. That's why I included an error handler to prevent the game from crashing. In such a case, a window will be displayed. But all information is also written into the [u][url=https://www.transportfever2.com/wiki/doku.php?id=gamemanual:gamefilelocations ]stdout txt[/url][/u].
+[u][b]If an error occurs, please do the following:[/b][/u] [olist]
+[*]In the mod settings, set Log Level to 2
+[*]Reproduce the error
+[*]Send me stdout file
+[/olist]
+[img]https://raw.githubusercontent.com/Vacuum-Tube/Advanced_Statistics_1/main/pictures/loglevel2.png[/img]
+
+[h2]Background[/h2]
+This project is by far the biggest and most elaborate mod I have created for Transport Fever 2.
+The first ideas started already a year ago. The statistics available in the game were just not sufficient enough for me. So it started with graphically displaying single values like game time, total population and other data about towns and industries.
+With the time the project became bigger and bigger, because I also wanted to include information of the other entity types (vehicles, assets, people, tracks...). Also, with the modding update last summer, even more possibilities were available.
+With time I learned a lot about the game, the (gui) modding interface and programming with Lua. So the next step always remained small and made it possible to add even more information in a compact and flexible way. The finished result always seemed close, but due to the volume (to extract everything interesting from the game what's possible) and many details, the project dragged on very long, which I underestimated in the beginning. 
+To get an impression of the size of the project: It consists of 87 script files.
+
+
+[h2]Acknowledgements[/h2]
+Although I encountered some technical issues during development, I would like to thank Urban Games for the support and the modding possibilities.
+A big thanks goes to eis_os and CommonAPI2, whose console and inspector tools were very useful during development.
+Furthermore, I would like to thank the beta testers for the useful comments.
+
+
+[h2]Code and future development[/h2]
+The source code of this mod is available on GitHub: https://github.com/Vacuum-Tube/Advanced_Statistics_1
+I have some ideas for the future. Anyway, I need a break from programming now.
+
+]],
+		mod_desc_paypal = [[If you like to support my mod development, you can donate here]],
+		mod_desc_discussion = [[
+If you have feedback, suggestions, bugs, crashes or questions about the stats itself, please use the appropriate subforum below.
+]],
+
+		welcome_text = [[
+现在是${date}，你的银行账户有${balance}。
+
+地图中共有${towns}座城镇和${industries}座产业，
+总人口数为${persons}。
+
+你的运输公司在${lines}条线路上共经营着${vehicles}辆载具，
+你的铁路网长度为${tracklength} (${percelectrified}电气化)，
+你拥有的道路长度为${streetlength}。
+
+你在这个存档一共游玩了${gametime}。
+
+现在的时间是:  ${realtime}
+]],
+		["Welcome back"] = "欢迎回来",
+		
+		RESIDENTIAL = "居民区",
+		COMMERCIAL = "商业区",
+		INDUSTRIAL = "产业区",
+		ALL = "全部",
+		ROAD = "公路",
+		RAIL = "铁路",
+		TRAM = "有轨车辆",
+		AIR = "空运",
+		WATER = "水运",
+		PERSON = "人口",
+		CARGO = "货物",
+		CAR = "私家车",
+		BUS = "公共汽车",
+		TRUCK = "卡车",
+		ELECTRIC_TRAM = "有轨电车",
+		TRAIN = "火车",
+		ELECTRIC_TRAIN = "电力火车",
+		AIRCRAFT = "大型飞机",
+		SHIP = "大型船舶",
+		SMALL_AIRCRAFT = "小型飞机",
+		SMALL_SHIP = "小型船舶",
+		TRACK = "轨道",
+		STREET = "街道",
+		Capacities = "容量",
+		
+		EN_ROUTE = "在路途上",
+		AT_TERMINAL = "在站点中",
+		GOING_TO_DEPOT = "正在回送",
+		IN_DEPOT = "在库中",
+		SIGNAL = "标准信号机",
+		ONE_WAY_SIGNAL = "单行道信号机",
+		WAYPOINT = "路径点",
+		
+		Load = "加载",
+		
+		welcome = "欢迎",
+		program = "程序",
+		settings = "设置",
+		info = "信息",
+		
+		Global = "全局",
+		View = "视野内",
+		Radius = "半径内",
+		
+		Average = "平均",
+		Min = "最小",
+		Max = "最大",
+		Sum = "总和",
+		Total = "总计",
+		
+		Notes = "记录",
+		NotesTFHint = "记录，备忘清单，...",
+		NotesTFTT = "你可以在这里写下备忘录，小贴士，等等。",
+		
+		["Program Startup"] = "游戏启动",
+		programStartTT = "本次游戏程序启动时间",
+		["Game Load"] = "游戏读取",
+		gameLoadTT = "游戏初始化时间，比按下启动按钮稍迟",
+		["Game Start"] = "游戏开始",
+		gameStartTT = "GUI初始化时间",
+		Now = "当前时间",
+		["Program Time"] = "启动时间",
+		["Game Time"] = "游戏时间",
+		["Loading Time"] = "读取时间",
+		loadingTimeTT = "从游戏初始化到游戏开始的时间",
+		["Release Notes"] = "更新日志",
+		
+		Datatype = "统计项",
+		SetDatatypeTT = [[
+游戏包含不同类型的实体。
+本模组会分别读取并统计这些实体的数据。]],
+		Runtime = "运行耗时",
+		SetRuntimeTT = [[
+数据计算是在游戏/脚本线程中以每秒5次的频率(200ms)执行的。
+由于需要遍历所有对象，有些计算可能耗时较长。
+时间取决于实体类型和游戏中/视野中的对象数量。
+如果所有计算更新的总和耗时超过200ms，游戏将会开始卡顿。
+你也可以在debug模式下控制这一设置。(debug模式开，2x AltGr+i，后者)]],
+		Run = "运行",
+		SetRunTT = [[
+总的来说，只有在对应选项卡被选择时，才会执行统计计算程序。
+你可以在此决定某项统计数据是否总是应被计算。
+这将会保持快捷栏的数据不断更新。
+不要启用太多耗时较长的选项，这会导致游戏延迟。
+在游戏早期你可以比在后期启用更多的计算。]],
+		Always = "总是",
+		["Game bar"] = "快捷栏",
+		SetGamebarTT = [[在游戏快捷栏中显示简要信息。]],
+		["Last Update"] = "上次更新",
+		["Free Data"] = "释放数据",
+		freedataTT = [[
+将会清除当前数据，以防止过大的数据容量导致退出游戏时出错。
+如果你想要继续，不要重新启用脚本，按下“重新加载”按钮。]],
+		Active = "启用",
+		Deactivated = "禁用",
+		showWindowSet = "游戏开始时显示窗口",
+		gamebarInsertSet = "在游戏快捷栏左侧放置按钮",
+		gamebarInsertSetTT = "否则放到右侧",
+		hideGameInfoSet = "隐藏游戏数据",
+		hideGameInfoSetTT = "“已运输”数据(在GAME选项卡中显示)",
+		advadvTT = "显示更多数据元素",
+		startSoundSet = "启动音效提示",
+		startSoundSetTT = [[
+在游戏加载后播放音效。
+第一个声音表示GUI初始化完成，第二个表示统计数据窗口初始化完成。]],
+		Reload = "重新加载",
+		
+		["Donate"] = "赞助",
+		["Thank You"] = "谢谢",
+		
+		["Game Information"] = "游戏信息",
+		Name = "名称",
+		["Company Score"] = "公司得分",
+		["Game Difficulty"] = "游戏难度",
+		Sandbox = "沙盒模式",
+		["No Costs"] = "无花费",
+		Simulation = "模拟",
+		gametimeTT = "由暂停/开始控制的游戏内时间",
+		["Update Count"] = "更新总数",
+		["Simulation Speed"] = "模拟速度",
+		gametimeTotTT = "包括暂停时间在内的游戏内时间",
+		["Tick Count"] = "游戏刻总数",
+		["Game Date"] = "游戏日期",
+		["Milliseconds per day"] = "每游戏日毫秒数",
+		["Transported Passengers"] = "已运送旅客数",
+		["Transported Cargo"] = "已运送货物数",
+		
+		World = "世界",
+		["Map Size"] = "地图大小",
+		["Terrain Tiles"] = "地形图格",
+		Tiles = "图格",
+		Terrain = "地形",
+		["Terrain Height"] = "海拔",
+		["Water Level"] = "海平面",
+		["Offset Z"] = "Z轴深度",
+		Resolution = "分辨率",
+		Area = "面积",
+		inaccurate = "不准确",
+		waterAreaTT = "大体上低估总水域面积",
+		relative = "比例",
+
+		Other = "其他",
+		Finances = "经济",
+		Balance = "预算",
+		Loan = "贷款",
+		["Maximum Loan"] = "最大贷款",
+		Income = "收入",
+		Maintenance = "维护花费",
+		Acquisition = "购置花费",
+		ConstructionJournal = "建设花费",
+		Interest = "利息",
+		ROI = "投资回报率",
+		Infrastructure = "基础设施",
+		
+		Towns = "城镇",
+		Count = "总数",
+		Development = "发展",
+		Size = "大小",
+		TownSizeTT = "城镇的“大小”是指三种区域数量的平均值",
+		["Growth Factor"] = "增长倍率",
+		GrowthFactorTT = "当前人口容量与基础值的比值",
+		["Growth Tendency"] = "增长率",
+		["Size Factor"] = "尺寸倍率",
+		Reachability = "通达度",
+		ReachabilityTT = [[这一数据与可行的目的地点的数量有关。
+最大值大约是商业区和产业区总数的均值，
+该值被作为分母(如果土地使用平均分布的话)。)]],
+		Car = "私人交通",
+		Line = "公共交通",
+		["Cargo Supply"] = "供给",
+		supplied = "得到供应",
+		partially = "部分",
+		completely = "完全",
+		["Traffic Rating"] = "交通状况",
+		
+		["Auto Upgrade"] = "自动升级",
+		Upgrading = "升级中",
+		Downgrading = "降级中",
+		Production = "产能",
+		Shipping = "进货",
+		Transport = "出货",
+		Produced = "已生产",
+		Shipped = "已运输",
+		Consumed = "已消费",
+		List = "详情",
+		
+		Lines = "线路",
+		Inactive = "非活动",
+		Fare = "运费",
+		General = "总体",
+		FareTT = "全局运费数值 (?) (api.engine.system.simEntityAtVehicleSystem.getFare)",
+		Frequency = "频率",
+		Rate = "吞吐量",
+		Stops = "停靠点",
+		["Ticket Price"] = "票价",
+		Transported = "已运输",
+		All = "全部",
+		["Transport Modes"] = "运输方式",
+		
+		Vehicles = "载具",
+		Status = "状态",
+		Stopped = "已停止",
+		Waiting = "等待中",
+		VehicleWaitingTT = "不在任何站点中且速度为0",
+		["Doors Open"] = "已开门",
+		["Never Doors Opened"] = "从未开门",
+		["Current Speed"] = "当前速度",
+		Condition = "状况",
+		Age = "年数",
+		["Last Doors Open"] = "最近开门",
+		Latest = "最近",
+		Oldest = "最早",
+		["Vehicle Parts"] = "节数",
+		Models = "模型",
+		
+		Stations = "站点",
+		Groups = "组合站点",
+		StationGroupTT = "组合站点是在道路两侧的单一站点(如公交车站/有轨电车站)的集合",
+		["Transport Samples"] = "交通样本",
+		TransportSamplesTT = "我也不知道这是啥，不过它和客运站点与人口目的地点有关。",
+		["Waiting Cargo"] = "等候运输",
+		Loaded = "已装载",
+		Unloaded = "已卸载",
+		
+		Depots = "库场",
+		["Last Used"] = "上次使用",
+		["Never Used"] = "从未使用",
+		
+		["Town Buildings"] = "城镇建筑",
+		Destinations = "目的地点",
+		Buildings = "建筑物",
+		Employed = "受雇",
+		Vacant = "空置",
+		Height = "高度",
+		Depth = "深度",
+		Parcels = "地块",
+		
+		Constructions = "建筑物",
+		["Person Capacity"] = "人口容量",
+		["Particle Emitters"] = "粒子排放",
+		["Build Cost"] = "建筑花费",
+		["Maintenance Cost"] = "维护花费",		
+		
+		Assets = "物品",
+		Not = "非",
+		Trees = "树",
+		Rocks = "岩石",
+		Fences = "围栏",
+		fencesTT = "雪球栅栏",
+		["Placeholder Cubes"] = "占位符方块",
+		
+		Segments = "路段",
+		edgeLengthTT = "由于估算，可能与总部的统计图表有差异",
+		["Bus Lane"] = "公交专用道",
+		Tram = "车辆轨道",
+		["Tram Electric"] = "电化轨道",
+		Bridge = "桥梁",
+		Tunnel = "隧道",
+		["Player Owned"] = "玩家所有权",
+		["Speed Limit"] = "最大速度",
+		["Curve Speed Limit"] = "曲线限速",
+		["Curve Radius"] = "曲线半径",		
+		Segment = "路段",
+		Slope = "坡度",
+		Types = "类型",
+		
+		Isolated = "尽头",
+		Connected = "连续",
+		Crossing = "交叉",
+		["Traffic Lights"] = "信号灯",
+		["Double Slip Switches"] = "复式交分道岔",
+		Nodes = "节点",
+		["Node Degree"] = "节点连接数",
+		NodeDegreeTT = "一个节点/路口的通道数量",
+		["Traffic Light Preference"] = "信号灯外观",
+		Preference = "外观",
+		["Traffic Light State"] = "信号灯状态",
+		State = "状态",
+		
+		Persons = "人口",
+		PersonCountAllTT = [[被模拟的总人数。
+他们并非都同时在地图上行动，实际上也不都有目的地点。
+但是他们几乎都会有寻路计算。
+在建筑中的人口数：总人数 - 可见人数 - 载具中人数。]],
+		Visible = "可见",
+		PersonCountVisTT = [[在旅途中的行人/私家车的数量，包括在路上和站点中的]],
+		["Moving"] = "移动中",
+		["At terminal"] = "站点中",
+		["in Vehicles"] = "载具中",
+		["Move Mode"] = "出行方式",
+		Walk = "步行",
+		["and"] = "和",
+		Only = "仅",
+		None = "无",
+		["Current Destination"] = "当前目的地",
+		["Number of different Towns"] = "目的地分布的城市数",
+		DifTownsCountTT = "Persons can have their destinations in 1, 2 or 3 different towns",
+		Town = "城镇",
+		["all same"] = "均在同一城市",
+		["two equal"] = "在两个城市",
+		["all different"] = "都在不同城市",
+		["Waiting Time"] = "等待时间",
+		Terminal = "站点",
+		["Last Destination Update"] = "上次目的地点更新",
+		
+		["Cargo Entities"] = "货物实体",
+		["At stock"] = "库存中",
+		CargoVisibleTT = [[只包括站点和工厂库存中的可见货物。
+这一数值低于货物的总数，因为载具上的没有被计算。
+不过本页下部有那部分的数量。]],
+		["Current Travel Time"] = "当前运行时间",
+		["Travel Time"] = "运行时间",
+		["Vehicle Loading"] = "载具装载",
+		["Vehicles with Cargo"] = "运输载具数",
+		
+		Animals = "动物",
+		
+		Signals = "信号机",
+		Off = "关",
+		On = "开",
+		Activation = "启动",
+		["Last Activated"] = "上次启动",
+		["Never Activated"] = "从未启动",
+		
+		["Railroad Crossings"] = "铁路道口",
+		Open = "开启",
+		Closed = "关闭",
+		Opening = "开启中",
+		
+		Resources = "资产",
+		["Res Type"] = "资产类型",
+		Vanilla = "原版",
+		["Mod Overload"] = "模组覆盖",
+		Index = "编号",
+		Icon = "图标",
+		Speed = "限速",
+		["Year From"] = "起始时间",
+		["Year To"] = "结束时间",
+		Filenames = "文件名",
+		country = "地区",
+		Weight = "重量",
+		Volume = "体积",
+		["Construction Type"] = "建筑类型",
+		Landuse = "土地使用",
+		
+		["Base Config"] = "基础配置",
+		
+		--general = "general",
+		--Settings = "设置",		
+		--Both = "都",
+		--States = "状态",
+		--More = "更多",
+		--Growth = "增长",
+		--Model = "模型",
+		--Availability = "可用性",
+		--["On the way"] = "On the way",
+		--["Cargo Types"] = "Cargo Types",
+		--["Cargo Loading"] = "Cargo Loading",
+		--RadiusViewTT = "Click to update",
+		
+		
+	},
+	
 	
 	de = {
 		mod_desc = [[
