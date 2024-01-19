@@ -4,7 +4,7 @@ local guibuilder = require "advanced_statistics/gui/guibuilder"
 local a,v,s = require "advanced_statistics/adv".sks()
 
 local nodesstr = {
-	_("Isolated"),
+	_("Dead Ends"),
 	_("Connected"),
 	"T-".._("Crossing"),
 	_("Crossing"),

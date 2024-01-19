@@ -15,6 +15,7 @@ function data()
 					tfnetId = 29264,
 				},
 			},
+			url = "https://www.transportfever.net/filebase/index.php?entry/6204-advanced-statistics/",
 			params = {
 				{	key = "avslog",
 					name = "Log Level",

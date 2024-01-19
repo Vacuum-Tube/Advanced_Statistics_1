@@ -957,6 +957,7 @@ Die echte Zeit ist jetzt:  ${realtime}
 		["Travel Time"] = "Reisedauer",
 		["Current Travel Time"] = "Aktuelle Reisedauer",
 		["Double Slip Switches"] = "Doppelkreuzweichen",
+		["Dead Ends"] = "Enden",
 		["Traffic Lights"] = "Ampeln",
 		["Waiting Cargo"] = "Wartende Güter",
 		["At stock"] = "Im Lager",

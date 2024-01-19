@@ -1,4 +1,8 @@
 return [[
+1.19  2024-01-19
+- chinese translation
+- degree 1 nodes are called "Dead Ends"
+
 1.18  2023-06-19
 - Display 3-degree track nodes as "Switch"
 - Check for multiline resource names to prevent displaying bug
